@@ -1,0 +1,4 @@
+name: autotests_in_python
+dependencies:
+    - python=3.9.12
+    - requests
