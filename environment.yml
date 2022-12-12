@@ -1,4 +1,12 @@
 name: autotests_in_python
+channels:
+    - conda-forge
 dependencies:
     - python=3.9.12
     - requests
+    - numpy
+    - openpyxl
+    - xlrd
+    - xlwt
+    - selenium
+
