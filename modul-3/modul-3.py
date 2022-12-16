@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-from selenium.webdriver import Chrome
-from selenium.webdriver.chrome.options import Options as Chrome_Options
-import chromedriver_binary
-
-print("Start")
-
-def run_script():
-    options = Chrome_Options()
-    driver = Chrome(options=options)
-    driver.get("https://github.com/testerchudova/autotests-in-python")
-    driver.get("https://git-scm.com/download/win")
-    #driver.quit()
-
-#run_script()
-options = Chrome_Options()
-driver = Chrome(options=options)
-driver.get("https://github.com/testerchudova/autotests-in-python")
-driver.get("https://git-scm.com/download/win")
-driver.get_screenshot_as_file(r"c:\Users\git")
-=======
 from time import sleep
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options as Firefox_options
@@ -45,17 +24,21 @@ def run_script():
 # для CSS с использованием псевдоселекторов.
 # Вместе с локатором желательно оставить скриншот и ссылку на страницу, чтобы было проще проверять работу.
 
+class Tester():
+    options = Firefox_options()
+    driver = Firefox(executable_path=path, options=options)
 
-
-
-
-
-
+    def hierarchical_nesting(seif):
+        """
+        иерархические (вложенность — три элемента);     
+        """        
+        Tester.driver.get("https://go.skillbox.ru/")
 
 
 
 
 
 if __name__ == "__main__":
-    run_script()
->>>>>>> 1dbf04d659192e42bac370d1a162e056efae74a3
+    
+    tester = Tester()
+    tester.hierarchical_nesting()
