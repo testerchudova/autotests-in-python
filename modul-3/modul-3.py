@@ -1,8 +1,11 @@
 from time import sleep
 from selenium.webdriver import Firefox
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import ActionChains
 from selenium.webdriver.firefox.options import Options as Firefox_options
-path = "..\..\geckodriver-v0.31.0-win64\geckodriver.exe"
-
+path = "..\.\geckodriver-v0.31.0-win64\geckodriver.exe"
+#path = "c:\Users\git\geckodriver-v0.31.0-win64\geckodriver.exe"
 def run_script():
     options = Firefox_options()
     driver = Firefox(executable_path=path, options=options)
@@ -31,8 +34,25 @@ class Tester():
     def hierarchical_nesting(seif):
         """
         иерархические (вложенность — три элемента);     
-        """        
-        Tester.driver.get("https://go.skillbox.ru/")
+        """
+        driver = Tester.driver  
+        page = driver.get("https://github.com/microsoft/vscode/issues")
+        find_el = Tester.driver.find_element(By.CSS_SELECTOR, "input#js-issues-search")
+        find_el.clear()
+        find_el.send_keys("in:title ")
+        find_el.send_keys("bug")
+        actions = ActionChains(Tester.driver)
+        actions.key_down(Keys.ENTER)
+        actions.perform()
+
+        #actions = ActionChains(driver)
+        #actions.click(find_el)
+        #actions.perform()
+
+
+
+        pass
+
 
 
 
