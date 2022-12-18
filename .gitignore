@@ -1,5 +1,3 @@
 /.idea
-/geckodriver.log
-modul-4/geckodriver.log
-modul-3/geckodriver.log
+*.log
 DEV/~$Книга1.xlsx
