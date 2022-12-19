@@ -103,16 +103,24 @@ class Tester():
         """
         
         page = Tester.driver.get("https://skillbox.ru/code/")
-
-        Tester.driver.find_element(By.CSS_SELECTOR, 'input[value="profession"]').click()
-
-        find_el_select_language.find_element(By.XPATH, '//option[@value="Python"]').click()
+        Tester.driver.find_element(By.CSS_SELECTOR, 'input[value="profession"]+span').click()       
+        Tester.driver.find_element(By.XPATH, '//span[span[contains(text(),"Android")]]').click()
+        Tester.driver.find_element(By.XPATH, '//span[span[contains(text(),"Backend-разработка")]]').click()
+        butt_end = Tester.driver.find_element(By.CSS_SELECTOR, 'div[aria-valuetext="24"]>button')
+        butt_first = Tester.driver.find_element(By.CSS_SELECTOR, 'div[aria-valuetext="1"]>button')
         
+        ActionChains(Tester.driver)\
+            .click_and_hold(butt_first)\
+            .move_by_offset(50, 0)\
+            .release()\
+            .perform()
 
-        Tester.driver.find_element(By.XPATH, '//input[@id="search_stars"]').send_keys(">2000")
-        Tester.driver.find_element(By.XPATH, '//input[@id="search_filename"]').send_keys("environment.yml")       
-        
-        Tester.driver.find_element(By.XPATH, '//div[@class="form-group flattened"]//button').click()
+        ActionChains(Tester.driver)\
+            .click_and_hold(butt_end)\
+            .move_by_offset(-60, 0)\
+            .release()\
+            .perform()
+
 
        
 
