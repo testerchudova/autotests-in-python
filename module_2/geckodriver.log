@@ -1,0 +1,658 @@
+1671125737059	geckodriver	INFO	Listening on 127.0.0.1:53937
+1671125961816	geckodriver	INFO	Listening on 127.0.0.1:54138
+1671125965547	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54139" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilecIqrSl"
+1671125967377	Marionette	INFO	Marionette enabled
+1671125967553	Marionette	INFO	Listening on port 54163
+Read port: 54163
+Read port: 54163
+WebDriver BiDi listening on ws://127.0.0.1:54139
+1671125971134	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilecIqrSl\\search.json.mozlz4", (void 0)))
+1671126003944	Marionette	INFO	Stopped listening on port 54163
+1671126003982	CDP	WARN	Failed to remove undefined (Could not parse path (undefined): NS_ERROR_FILE_UNRECOGNIZED_PATH)
+console.warn: services.settings: main/query-stripping sync interrupted by shutdown
+console.warn: SearchService: "#init: abandoning init due to shutting down"
+JavaScript error: , line 0: uncaught exception: 2147500036
+JavaScript error: , line 0: uncaught exception: 2147500036
+JavaScript error: , line 0: uncaught exception: 2147500036
+JavaScript error: , line 0: uncaught exception: 2147500036
+JavaScript error: , line 0: uncaught exception: 2147500036
+JavaScript error: , line 0: uncaught exception: 2147500036
+1671126028678	geckodriver	INFO	Listening on 127.0.0.1:54233
+1671126031977	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54234" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileLWN5k4"
+1671126036756	Marionette	INFO	Marionette enabled
+1671126036812	Marionette	INFO	Listening on port 54259
+Read port: 54259
+WebDriver BiDi listening on ws://127.0.0.1:54234
+1671126037326	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileLWN5k4\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54234/devtools/browser/5329fa73-a72b-4445-9e48-b669489c0057
+1671126566886	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: timeout
+1671129149415	Marionette	INFO	Stopped listening on port 54259
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1671130674391	geckodriver	INFO	Listening on 127.0.0.1:57956
+1671130677470	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57957" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileF794N6"
+1671130681534	Marionette	INFO	Marionette enabled
+1671130681567	Marionette	INFO	Listening on port 57985
+Read port: 57985
+Read port: 57985
+WebDriver BiDi listening on ws://127.0.0.1:57957
+1671130683150	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileF794N6\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57957/devtools/browser/fdad9730-98fe-4340-82e8-17ef1fa50cda
+1671130820617	Marionette	INFO	Stopped listening on port 57985
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+console.log: "RemoteSettingsWorker error: Error: Can't import when we've started shutting down."
+1671130823296	geckodriver	INFO	Listening on 127.0.0.1:58099
+1671130826341	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "58100" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilekCkD38"
+1671130826975	Marionette	INFO	Marionette enabled
+1671130826989	Marionette	INFO	Listening on port 58141
+Read port: 58141
+WebDriver BiDi listening on ws://127.0.0.1:58100
+1671130827203	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilekCkD38\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58100/devtools/browser/a09d04aa-dd2f-4b2c-bf60-de3f462a57e8
+1671131029733	Marionette	INFO	Stopped listening on port 58141
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1671286761426	geckodriver	INFO	Listening on 127.0.0.1:61311
+1671286764719	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61312" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofile4eBsQp"
+1671286980185	geckodriver	INFO	Listening on 127.0.0.1:61546
+1671286983313	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61547" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilehB2CEp"
+1671286985019	Marionette	INFO	Marionette enabled
+1671286985030	Marionette	INFO	Listening on port 61562
+Read port: 61562
+WebDriver BiDi listening on ws://127.0.0.1:61547
+1671286986014	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilehB2CEp\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61547/devtools/browser/f7195e86-2f87-460a-8b08-f63ca672e938
+1671287003003	Marionette	INFO	Stopped listening on port 61562
+!!! error running onStopped callback: TypeError: callback is not a function
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 693: TypeError: this.tablesData[table] is undefined
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.jsm:703:15
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:511:26
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:450:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1563:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1583:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.jsm:19:28
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:103:5
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:63:33
+_submitPingLogic@resource://gre/modules/TelemetryControllerParent.jsm:540:48
+send@resource://gre/modules/TelemetryControllerParent.jsm:628:24
+submitExternalPing@resource://gre/modules/TelemetryControllerParent.jsm:182:17
+sendPing@resource://gre/modules/EventPing.jsm:51:30
+_submitPing@resource://gre/modules/EventPing.jsm:229:12
+shutdown@resource://gre/modules/EventPing.jsm:112:10
+_cleanupOnShutdown@resource://gre/modules/TelemetryControllerParent.jsm:940:31
+shutdown/<@resource://gre/modules/TelemetryControllerParent.jsm:1010:24
+observe@resource://gre/modules/AsyncShutdown.jsm:560:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.jsm:703:15
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:511:26
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:450:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1563:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1583:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.jsm:19:28
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:103:5
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:63:33
+_submitPingLogic@resource://gre/modules/TelemetryControllerParent.jsm:540:48
+send@resource://gre/modules/TelemetryControllerParent.jsm:628:24
+submitExternalPing@resource://gre/modules/TelemetryControllerParent.jsm:182:17
+saveShutdownPings@resource://gre/modules/TelemetrySession.jsm:982:34
+shutdownChromeProcess/cleanup/<@resource://gre/modules/TelemetrySession.jsm:1232:20
+cleanup@resource://gre/modules/TelemetrySession.jsm:1239:9
+shutdownChromeProcess@resource://gre/modules/TelemetrySession.jsm:1256:14
+shutdown@resource://gre/modules/TelemetrySession.jsm:247:17
+_cleanupOnShutdown@resource://gre/modules/TelemetryControllerParent.jsm:959:35
+observe@resource://gre/modules/AsyncShutdown.jsm:560:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.jsm:703:15
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:511:26
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:450:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1563:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1583:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.jsm:19:28
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:103:5
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:63:33
+_submitPingLogic@resource://gre/modules/TelemetryControllerParent.jsm:540:48
+send@resource://gre/modules/TelemetryControllerParent.jsm:628:24
+submitExternalPing@resource://gre/modules/TelemetryControllerParent.jsm:182:17
+saveShutdownPings@resource://gre/modules/TelemetrySession.jsm:1014:36
+shutdownChromeProcess/cleanup/<@resource://gre/modules/TelemetrySession.jsm:1232:20
+cleanup@resource://gre/modules/TelemetrySession.jsm:1239:9
+shutdownChromeProcess@resource://gre/modules/TelemetrySession.jsm:1256:14
+shutdown@resource://gre/modules/TelemetrySession.jsm:247:17
+_cleanupOnShutdown@resource://gre/modules/TelemetryControllerParent.jsm:959:35
+observe@resource://gre/modules/AsyncShutdown.jsm:560:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.jsm:703:15
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:511:26
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:450:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1563:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1583:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.jsm:19:28
+getShutdownState@resource://gre/modules/TelemetrySend.jsm:1687:7
+getShutdownState@resource://gre/modules/TelemetrySend.jsm:369:30
+_getState@resource://gre/modules/TelemetryControllerParent.jsm:1058:38
+setupTelemetry/<@resource://gre/modules/TelemetryControllerParent.jsm:917:18
+safeGetState@resource://gre/modules/AsyncShutdown.jsm:242:17
+Barrier/addBlocker/promise<@resource://gre/modules/AsyncShutdown.jsm:751:20
+observe@resource://gre/modules/AsyncShutdown.jsm:560:16
+
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.jsm:703:15
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:511:26
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:450:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1563:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1583:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.jsm:19:28
+removeAbortedSessionPing@resource://gre/modules/TelemetryControllerParent.jsm:721:5
+removeAbortedSessionPing@resource://gre/modules/TelemetryControllerParent.jsm:249:17
+shutdownChromeProcess/cleanup/<@resource://gre/modules/TelemetrySession.jsm:1235:42
+observe@resource://gre/modules/AsyncShutdown.jsm:560:16
+
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 703: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 703: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 703: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 703: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 703: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 703: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1671287011692	geckodriver	INFO	Listening on 127.0.0.1:61647
+1671287014702	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61648" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilesOQiYJ"
+1671287015368	Marionette	INFO	Marionette enabled
+1671287015376	Marionette	INFO	Listening on port 61663
+Read port: 61663
+WebDriver BiDi listening on ws://127.0.0.1:61648
+1671287015577	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilesOQiYJ\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61648/devtools/browser/39b1b591-5cf8-4905-9826-cfb1ee13adcf
+1671287023087	Marionette	INFO	Stopped listening on port 61663
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1671287039526	geckodriver	INFO	Listening on 127.0.0.1:61730
+1671287042563	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61731" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofile1iUufS"
+1671287043160	Marionette	INFO	Marionette enabled
+1671287043169	Marionette	INFO	Listening on port 61745
+Read port: 61745
+WebDriver BiDi listening on ws://127.0.0.1:61731
+1671287043330	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofile1iUufS\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61731/devtools/browser/4c2dad15-d98d-41c1-8920-562af6696b1c
+1671288871439	geckodriver	INFO	Listening on 127.0.0.1:62022
+1671288874476	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62023" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileKxJMzX"
+1671288878030	Marionette	INFO	Marionette enabled
+1671288878062	Marionette	INFO	Listening on port 62036
+Read port: 62036
+WebDriver BiDi listening on ws://127.0.0.1:62023
+1671288879305	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileKxJMzX\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:62023/devtools/browser/50a05984-51e1-458e-a064-9896f67b0bc4
+1671289787423	Marionette	INFO	Stopped listening on port 62036
+1671383229027	geckodriver	INFO	Listening on 127.0.0.1:64419
+1671383232150	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64420" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileMXbbFz"
+1671383237512	Marionette	INFO	Marionette enabled
+1671383237541	Marionette	INFO	Listening on port 64437
+Read port: 64437
+WebDriver BiDi listening on ws://127.0.0.1:64420
+Read port: 64437
+1671383239401	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 764))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 416))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileMXbbFz\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64420/devtools/browser/572c4f7f-5b4b-4a14-af4a-caf98d6705c6
+1671383360978	geckodriver	INFO	Listening on 127.0.0.1:64612
+1671383363967	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64613" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileG3tfFm"
+1671383364959	Marionette	INFO	Marionette enabled
+1671383364969	Marionette	INFO	Listening on port 64630
+Read port: 64630
+WebDriver BiDi listening on ws://127.0.0.1:64613
+1671383365157	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileG3tfFm\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64613/devtools/browser/35bfaea9-4777-42eb-94cf-a1adedf4e13f
+1671383996626	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:425:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+1671384058945	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:425:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+1671384697962	geckodriver	INFO	Listening on 127.0.0.1:49327
+1671384700952	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "49328" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilewWoiQs"
+1671384705310	Marionette	INFO	Marionette enabled
+1671384705386	Marionette	INFO	Listening on port 49344
+Read port: 49344
+WebDriver BiDi listening on ws://127.0.0.1:49328
+1671384706198	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilewWoiQs\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49328/devtools/browser/2d1d36b4-b6f7-4472-be60-c8dd3eabe68d
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+1671384975996	geckodriver	INFO	Listening on 127.0.0.1:49608
+1671384978983	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "49609" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileWjs84s"
+1671384979757	Marionette	INFO	Marionette enabled
+1671384979765	Marionette	INFO	Listening on port 49626
+Read port: 49626
+WebDriver BiDi listening on ws://127.0.0.1:49609
+1671384979967	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileWjs84s\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49609/devtools/browser/eebe0818-25b4-44c3-bc57-a7226b09f779
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+1671385028409	geckodriver	INFO	Listening on 127.0.0.1:49773
+1671385031421	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "49774" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileHaDxKC"
+1671385032269	Marionette	INFO	Marionette enabled
+1671385032277	Marionette	INFO	Listening on port 49792
+Read port: 49792
+WebDriver BiDi listening on ws://127.0.0.1:49774
+1671385032483	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileHaDxKC\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49774/devtools/browser/b628b1ea-ddc6-4bd1-86e1-9a3a8befb146
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+1671385074050	geckodriver	INFO	Listening on 127.0.0.1:49925
+1671385077000	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "49926" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileJhNhsR"
+1671385077901	Marionette	INFO	Marionette enabled
+1671385077908	Marionette	INFO	Listening on port 49941
+Read port: 49941
+WebDriver BiDi listening on ws://127.0.0.1:49926
+1671385078138	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileJhNhsR\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49926/devtools/browser/1e95db1a-6a1c-40c0-87b5-f5933f316053
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+1671386135861	geckodriver	INFO	Listening on 127.0.0.1:50642
+1671386138905	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50643" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilenHjzVj"
+1671386139668	Marionette	INFO	Marionette enabled
+1671386139679	Marionette	INFO	Listening on port 50659
+Read port: 50659
+WebDriver BiDi listening on ws://127.0.0.1:50643
+1671386139927	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilenHjzVj\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50643/devtools/browser/139272d2-9ad5-4db8-ae11-ecd8af6bd151
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+1671386154490	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:425:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+Marionette threw an error: [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "JS frame :: chrome://remote/content/marionette/capture.sys.mjs :: capture.canvas :: line 138"  data: no]
+capture.canvas@chrome://remote/content/marionette/capture.sys.mjs:138:62
+takeScreenshot@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:249:37
+
+Marionette threw an error: [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "JS frame :: chrome://remote/content/marionette/capture.sys.mjs :: capture.canvas :: line 138"  data: no]
+capture.canvas@chrome://remote/content/marionette/capture.sys.mjs:138:62
+takeScreenshot@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:249:37
+
+Marionette threw an error: [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "JS frame :: chrome://remote/content/marionette/capture.sys.mjs :: capture.canvas :: line 138"  data: no]
+capture.canvas@chrome://remote/content/marionette/capture.sys.mjs:138:62
+takeScreenshot@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:249:37
+
+Marionette threw an error: [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "JS frame :: chrome://remote/content/marionette/capture.sys.mjs :: capture.canvas :: line 138"  data: no]
+capture.canvas@chrome://remote/content/marionette/capture.sys.mjs:138:62
+takeScreenshot@chrome://remote/content/marionette/actors/MarionetteCommandsParent.sys.mjs:249:37
+
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+1671387437148	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:425:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+1671387504080	geckodriver	INFO	Listening on 127.0.0.1:51673
+1671387507200	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51674" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilekEsgjU"
+1671387512574	Marionette	INFO	Marionette enabled
+1671387512614	Marionette	INFO	Listening on port 51695
+Read port: 51695
+WebDriver BiDi listening on ws://127.0.0.1:51674
+1671387513294	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilekEsgjU\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51674/devtools/browser/ed80c489-c631-4f8b-a3c8-cd6cc28dae55
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+1671387889580	geckodriver	INFO	Listening on 127.0.0.1:52021
+1671387893089	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52022" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilejzVsoP"
+1671387893885	Marionette	INFO	Marionette enabled
+1671387893892	Marionette	INFO	Listening on port 52035
+Read port: 52035
+WebDriver BiDi listening on ws://127.0.0.1:52022
+1671387894104	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.sys.mjs: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.sys.mjs", 416))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilejzVsoP\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52022/devtools/browser/cf891654-0a02-4573-ab70-7009c3d7672f
+1671387964910	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1671387982330	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1671388228332	geckodriver	INFO	Listening on 127.0.0.1:52301
+1671388231518	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52302" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofile7Q5pzl"
+1671388233719	Marionette	INFO	Marionette enabled
+1671388233728	Marionette	INFO	Listening on port 52319
+Read port: 52319
+WebDriver BiDi listening on ws://127.0.0.1:52302
+1671388233929	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofile7Q5pzl\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52302/devtools/browser/d3bce432-7794-481e-9101-e4010c4c7b9f
+1671388346736	geckodriver	INFO	Listening on 127.0.0.1:52506
+1671388349781	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52507" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileOICnml"
+1671388351522	Marionette	INFO	Marionette enabled
+1671388351530	Marionette	INFO	Listening on port 52523
+Read port: 52523
+WebDriver BiDi listening on ws://127.0.0.1:52507
+1671388351968	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileOICnml\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52507/devtools/browser/2cbf519e-4703-46de-ae92-5cdd244690f9
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://github.com."
+1671404910022	geckodriver	INFO	Listening on 127.0.0.1:62963
+1671404913115	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62964" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofile76kKgf"
+1671404922230	Marionette	INFO	Marionette enabled
+1671404922286	Marionette	INFO	Listening on port 62983
+Read port: 62983
+WebDriver BiDi listening on ws://127.0.0.1:62964
+Read port: 62983
+1671404928091	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 764))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 416))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofile76kKgf\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:62964/devtools/browser/98fd8d17-36a2-4c36-a6e5-0d3000cc1104
+1671404996159	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1671405322152	geckodriver	INFO	Listening on 127.0.0.1:63557
+1671405325296	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63558" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilet43z8v"
+1671405329256	Marionette	INFO	Marionette enabled
+1671405329288	Marionette	INFO	Listening on port 63574
+Read port: 63574
+WebDriver BiDi listening on ws://127.0.0.1:63558
+1671405330189	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilet43z8v\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63558/devtools/browser/211ac1a1-e5da-41a2-8f45-3fbe6ba9ca59
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+1671405356714	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+[GFX1-]: Managed to allocate after flush.
+1671405404277	geckodriver	INFO	Listening on 127.0.0.1:63811
+1671405407239	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63812" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileDRwBKs"
+1671405408116	Marionette	INFO	Marionette enabled
+1671405408123	Marionette	INFO	Listening on port 63827
+Read port: 63827
+WebDriver BiDi listening on ws://127.0.0.1:63812
+1671405408291	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileDRwBKs\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63812/devtools/browser/afbb72b5-faa6-4ed9-bb21-c56d80b6c9e0
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+1671405431137	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1671405571857	geckodriver	INFO	Listening on 127.0.0.1:64118
+1671405574906	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64119" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileP0sX7F"
+1671405576264	Marionette	INFO	Marionette enabled
+1671405576272	Marionette	INFO	Listening on port 64136
+Read port: 64136
+WebDriver BiDi listening on ws://127.0.0.1:64119
+1671405576453	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileP0sX7F\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64119/devtools/browser/9a072f8d-4b7a-4c63-8de5-8e4980b53c9c
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+[GFX1-]: Managed to allocate after flush.
+[GFX1-]: DCompositionSurface::BeginDraw failed: 0x8007000e Rect(x=524288, y=524288, w=1024, h=512)
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1]: RenderDXGITextureHost AcquireSync timeout, hr=0x80
+[GFX1-]: Handling webrender error 4
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: GFX: D3D11 lock mutex abandoned
+console.error: "Exception while opening the toolbox" "Error: Connection closed, pending request to server0.conn0.target-configuration4, type updateConfiguration failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:300:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:47:19\nupdateConfiguration@resource://devtools/shared/commands/target-configuration/target-configuration-command.js:51:48\n" (new Error("Connection closed, pending request to server0.conn0.target-configuration4, type updateConfiguration failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:300:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:47:19\nupdateConfiguration@resource://devtools/shared/commands/target-configuration/target-configuration-command.js:51:48\n", "resource://devtools/shared/protocol/Front.js", 106))
+baseFrontClassDestroy@resource://devtools/shared/protocol/Front.js:106:23
+destroy@resource://devtools/shared/protocol/Front.js:74:10
+destroy@resource://devtools/shared/protocol/Pool.js:211:17
+baseFrontClassDestroy@resource://devtools/shared/protocol/Front.js:110:13
+destroy@resource://devtools/shared/protocol/Front.js:74:10
+destroy@resource://devtools/shared/protocol/Pool.js:211:17
+baseFrontClassDestroy@resource://devtools/shared/protocol/Front.js:110:13
+destroy@resource://devtools/shared/protocol/Front.js:74:10
+destroy@resource://devtools/client/fronts/descriptors/descriptor-mixin.js:55:19
+destroy@resource://devtools/client/fronts/descriptors/tab.js:101:11
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+destroy@resource://devtools/client/fronts/descriptors/tab.js:96:12
+destroy@resource://devtools/shared/commands/index.js:88:31
+_destroyToolbox/onceDestroyed</<@resource://devtools/client/framework/toolbox.js:4260:34
+
+console.error: "Error while calling actor 'watcher's method 'watchResources'" "An attempt was made to use an object that is not, or is no longer, usable"
+console.error: (new InvalidStateError("An attempt was made to use an object that is not, or is no longer, usable", (void 0), 101))
+console.error: "Error while calling actor 'target-configuration's method 'updateConfiguration'" "An attempt was made to use an object that is not, or is no longer, usable"
+console.error: (new InvalidStateError("An attempt was made to use an object that is not, or is no longer, usable", (void 0), 101))
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 963: TypeError: win is null
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+console.error: "Tried to send a 'getApplied' method reply on an already destroyed actor 'pagestyle'"
+console.error: "Tried to send a 'getApplied' method reply on an already destroyed actor 'pagestyle'"
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+1671408272939	Marionette	INFO	Stopped listening on port 64136
+[Parent 6212, IPC I/O Parent] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:559
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1671408636507	geckodriver	INFO	Listening on 127.0.0.1:50500
+1671408639403	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50501" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilellXdvV"
+1671408643825	Marionette	INFO	Marionette enabled
+1671408643912	Marionette	INFO	Listening on port 50520
+Read port: 50520
+WebDriver BiDi listening on ws://127.0.0.1:50501
+1671408644648	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 764))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 416))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilellXdvV\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50501/devtools/browser/f4b7bf7a-70b7-4c70-8fc9-9245a1fd0e19
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+[GFX1-]: Unexpected BufferProvider over-production.
+1671408737001	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+[GFX1-]: Managed to allocate after flush.
+1671410275388	geckodriver	INFO	Listening on 127.0.0.1:51730
+1671410278450	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51731" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofile3rRUi3"
+1671410283063	Marionette	INFO	Marionette enabled
+1671410283107	Marionette	INFO	Listening on port 51749
+Read port: 51749
+WebDriver BiDi listening on ws://127.0.0.1:51731
+1671410284098	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofile3rRUi3\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51731/devtools/browser/587ebcd5-7166-4daf-b63e-12aa0764a475
+1671410314924	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+[GFX1-]: Managed to allocate after flush.
+1671410788660	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:425:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+1671411906347	geckodriver	INFO	Listening on 127.0.0.1:53325
+1671411909403	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53326" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilenDA34o"
+1671411913671	Marionette	INFO	Marionette enabled
+1671411913738	Marionette	INFO	Listening on port 53342
+Read port: 53342
+WebDriver BiDi listening on ws://127.0.0.1:53326
+1671411915036	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilenDA34o\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53326/devtools/browser/95e8c620-4e88-40b8-ac6c-e059db25d9a5
+1671411960605	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+[GFX1-]: Managed to allocate after flush.
+1671412196362	geckodriver	INFO	Listening on 127.0.0.1:53738
+1671412199264	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53739" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilezb4k59"
+1671412200727	Marionette	INFO	Marionette enabled
+1671412200745	Marionette	INFO	Listening on port 53754
+Read port: 53754
+WebDriver BiDi listening on ws://127.0.0.1:53739
+1671412201123	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilezb4k59\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53739/devtools/browser/77ce6b0e-b86d-4904-b396-45c62a52a11a
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+[GFX1-]: Managed to allocate after flush.
+1671413036389	geckodriver	INFO	Listening on 127.0.0.1:54747
+1671413039533	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54748" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileo3apwX"
+1671413043457	Marionette	INFO	Marionette enabled
+1671413043501	Marionette	INFO	Listening on port 54765
+Read port: 54765
+WebDriver BiDi listening on ws://127.0.0.1:54748
+1671413044470	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileo3apwX\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54748/devtools/browser/43719e02-4536-4213-8476-146a97297c7c
+JavaScript error: resource://services-settings/Utils.jsm, line 265: NS_ERROR_OUT_OF_MEMORY: 
+1671414137284	geckodriver	INFO	Listening on 127.0.0.1:55537
+1671414140273	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55538" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilemjYm9f"
+1671414143393	Marionette	INFO	Marionette enabled
+1671414143413	Marionette	INFO	Listening on port 55554
+Read port: 55554
+WebDriver BiDi listening on ws://127.0.0.1:55538
+1671414144190	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofilemjYm9f\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55538/devtools/browser/49febbc6-2c35-4b3f-b638-d0fdde5e5ba1
+1671414229958	geckodriver	INFO	Listening on 127.0.0.1:55706
+1671414232925	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55707" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileBJmOGm"
+1671414233989	Marionette	INFO	Marionette enabled
+1671414234002	Marionette	INFO	Listening on port 55722
+Read port: 55722
+WebDriver BiDi listening on ws://127.0.0.1:55707
+1671414234256	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileBJmOGm\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55707/devtools/browser/8f390764-fde1-4c85-96bf-b6527a522b17
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 302: NS_ERROR_FAILURE: Should pass a non-null uri
+1671414303201	geckodriver	INFO	Listening on 127.0.0.1:55856
+1671414306171	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55857" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileFoCdMa"
+1671414306909	Marionette	INFO	Marionette enabled
+1671414306917	Marionette	INFO	Listening on port 55872
+Read port: 55872
+WebDriver BiDi listening on ws://127.0.0.1:55857
+1671414307098	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileFoCdMa\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55857/devtools/browser/dd5dfd9b-6c5b-4067-aa2c-e5aeac64655e
+1671414548168	geckodriver	INFO	Listening on 127.0.0.1:56077
+1671414551133	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56078" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofiletFR1gj"
+1671414552340	Marionette	INFO	Marionette enabled
+1671414552353	Marionette	INFO	Listening on port 56093
+Read port: 56093
+WebDriver BiDi listening on ws://127.0.0.1:56078
+1671414552587	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofiletFR1gj\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56078/devtools/browser/d5db90aa-0c7f-46be-bf60-341027d67737
+1671414626390	geckodriver	INFO	Listening on 127.0.0.1:56247
+1671414629341	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56248" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileUcxBRB"
+1671414631066	Marionette	INFO	Marionette enabled
+1671414631076	Marionette	INFO	Listening on port 56263
+Read port: 56263
+WebDriver BiDi listening on ws://127.0.0.1:56248
+1671414631422	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileUcxBRB\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56248/devtools/browser/8e98fce3-2ff1-4beb-8c69-7e5efa89cae5
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 764))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 416))
+1671414818359	geckodriver	INFO	Listening on 127.0.0.1:56474
+1671414821382	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56475" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileTcFsdH"
+1671414822357	Marionette	INFO	Marionette enabled
+1671414822367	Marionette	INFO	Listening on port 56491
+Read port: 56491
+WebDriver BiDi listening on ws://127.0.0.1:56475
+1671414822631	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DA1E~1\\AppData\\Local\\Temp\\rust_mozprofileTcFsdH\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56475/devtools/browser/a2fc112e-ae73-4b6f-846e-83736c7d8661
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 764))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 416))
