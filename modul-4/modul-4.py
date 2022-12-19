@@ -63,7 +63,7 @@ class Tester():
         find_el_select_language.find_element(By.XPATH, '//option[@value="Python"]').click()
         
 
-        Tester.driver.find_element(By.XPATH, '//input[@id="search_stars"]').send_keys(">2000")
+        Tester.driver.find_element(By.XPATH, '//input[@id="search_stars"]').send_keys(">20000")
         Tester.driver.find_element(By.XPATH, '//input[@id="search_filename"]').send_keys("environment.yml")       
         
         Tester.driver.find_element(By.XPATH, '//div[@class="form-group flattened"]//button').click()
