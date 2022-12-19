@@ -5,27 +5,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 from selenium.webdriver.firefox.options import Options as Firefox_options
 path = "..\.\geckodriver-v0.31.0-win64\geckodriver.exe"
-#path = "c:\Users\git\geckodriver-v0.31.0-win64\geckodriver.exe"
-def run_script():
-    options = Firefox_options()
-    driver = Firefox(executable_path=path, options=options)
-    driver.get("https://go.skillbox.ru/")
-    # sleep(10)
-    # driver.quit()
-
-# Что нужно сделать
-# Для сайта GitHub или Python напишите несколько разных CSS- и xPath-локаторов.
-#
-# Должны быть составлены следующие локаторы:
-#
-# иерархические (вложенность — три элемента);
-# по атрибутам: класс, идентификатор, имя;
-# по кастомным атрибутам: data-*;
-# связка иерархического и атрибута (например, //div[@attr=””]);
-# два разных локатора с поиском чайлда, парента и соседей (sibling и not-sibling);
-# для xPath с использованием функций;
-# для CSS с использованием псевдоселекторов.
-# Вместе с локатором желательно оставить скриншот и ссылку на страницу, чтобы было проще проверять работу.
 
 class Tester():
     options = Firefox_options()
@@ -58,7 +37,7 @@ class Tester():
         3 Введите в поиск имя bpasero.
         4 Выберите в выпадающем списке элемент с названием
         5 Остановите выполнение автотеста и глазами проверьте, что все отображаемые задачи — от выбранного автора.
-  
+  https://www.selenium.dev/selenium/docs/api/py/webdriver/selenium.webdriver.common.action_chains.html#selenium.webdriver.common.action_chains.ActionChains.move_to_element
         """
         
         page = Tester.driver.get("https://github.com/microsoft/vscode/issues")
@@ -121,19 +100,34 @@ class Tester():
             .release()\
             .perform()
 
+    def test_hover(seif):
+        """
+        Кейс №5
+        Шаги:
+        1 Откройте страницу https://github.com/microsoft/vscode/graphs/commit-activity.
+        2 Наведите мышку на график.
+        3 Проверьте, что мышка навелась корректно.  
+        """
+        
+        page = Tester.driver.get("https://github.com/microsoft/vscode/graphs/commit-activity")
+        sleep(1)
+
+        graf = find_el_select_language = Tester.driver.find_element(By.CSS_SELECTOR, 'section g:nth-of-type(15)')
+
+        ActionChains(Tester.driver)\
+            .move_to_element(graf)\
+            .perform()
 
        
-
-
-
 
 
 
 if __name__ == "__main__":
     
     tester = Tester()
-    # tester.test_find_title_bug()
+    tester.test_find_title_bug()
     # tester.test_select_from_list()
     # tester.test_filling_out_form()
-    tester.test_course_selection()
+    #tester.test_course_selection()
+    #tester.test_hover()
 
