@@ -8,7 +8,13 @@ path = "..\.\geckodriver-v0.31.0-win64\geckodriver.exe"
 
 class Tester():
     options = Firefox_options()
+    options.page_load_strategy = "normal"
     driver = Firefox(executable_path=path, options=options)
+    
+    @classmethod
+    def is_element(cls, common_by, selector):
+        is_element = len(Tester.driver.find_elements(common_by, selector)) > 0
+        return is_element
 
     def test_find_title_bug(seif):
         """
@@ -21,13 +27,36 @@ class Tester():
         5 Получите все названия задач.
         6 Проверьте, что каждая из задач содержит в названии слово bug (важно не учитывать регистр, то есть Bug и bug — это одно и то же).
         """
+        line = "bug"
         driver = Tester.driver  
         page = driver.get("https://github.com/microsoft/vscode/issues")
         find_el = Tester.driver.find_element(By.CSS_SELECTOR, "input#js-issues-search")
         find_el.clear()
         find_el.send_keys("in:title ")
-        find_el.send_keys("bug")
+        find_el.send_keys(line)
         actions = ActionChains(Tester.driver).key_down(Keys.ENTER).perform()
+
+        
+        page = 1
+        
+        while not Tester.is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]') and (page < 10):
+            sleep(3)
+            titles = Tester.driver.find_elements(By.CSS_SELECTOR, 'div[class="js-navigation-container js-active-navigation-container"]>div')
+            test_page_ok = all(item.text.upper().find(line.upper()) != -1 for item in titles)
+            assert test_page_ok == True, f"'Один из элементов title, на странице {page} не содержит подстроки {line}"
+            page += 1
+            button_next = Tester.driver.find_element(By.CSS_SELECTOR, 'a.next_page')
+            button_next.click()
+        
+        print("Тест завершен успешно.")
+
+
+
+        pass
+
+
+
+
     
     def test_select_from_list(seif):
         """
