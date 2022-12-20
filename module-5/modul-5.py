@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 from selenium.webdriver.firefox.options import Options as Firefox_options
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.common.exceptions import InvalidSessionIdException, StaleElementReferenceException
 path = "..\.\geckodriver-v0.31.0-win64\geckodriver.exe"
 
 class Tester():
@@ -40,13 +42,16 @@ class Tester():
         page = 1
         
         while not Tester.is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]') and (page < 10):
-            sleep(3)
-            titles = Tester.driver.find_elements(By.CSS_SELECTOR, 'div[class="js-navigation-container js-active-navigation-container"]>div')
-            test_page_ok = all(item.text.upper().find(line.upper()) != -1 for item in titles)
-            assert test_page_ok == True, f"'Один из элементов title, на странице {page} не содержит подстроки {line}"
+            try:
+                titles = WebDriverWait(Tester.driver, timeout=3)\
+                        .until(lambda d: d.find_elements(By.CSS_SELECTOR, 'div[class="js-navigation-container js-active-navigation-container"]>div'))
+                test_page_ok = all([item.text.upper().find(line.upper()) != -1 for item in titles])                
+                assert test_page_ok == True, f"'Один из элементов title, на странице {page} не содержит подстроки {line}"                
+                button_next = Tester.driver.find_element(By.CSS_SELECTOR, 'a.next_page')
+                button_next.click()  
+            except StaleElementReferenceException:
+                continue
             page += 1
-            button_next = Tester.driver.find_element(By.CSS_SELECTOR, 'a.next_page')
-            button_next.click()
         
         print("Тест завершен успешно.")
 
