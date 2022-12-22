@@ -5,6 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 from selenium.webdriver.firefox.options import Options as Firefox_options
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.expected_conditions import text_to_be_present_in_element_value
 from selenium.common.exceptions import InvalidSessionIdException, StaleElementReferenceException
 path = "..\.\geckodriver-v0.31.0-win64\geckodriver.exe"
 
@@ -54,9 +55,6 @@ class Tester():
             page += 1
         
         print("Тест завершен успешно.")
-
-
-
         pass
 
 
@@ -70,17 +68,35 @@ class Tester():
         1 Откройте страницу https://github.com/microsoft/vscode/issues.
         2 Нажмите на кнопку Author.
         3 Введите в поиск имя bpasero.
+        4 Дождитесь появления в списке нужного автора
         4 Выберите в выпадающем списке элемент с названием
         5 Остановите выполнение автотеста и глазами проверьте, что все отображаемые задачи — от выбранного автора.
-  https://www.selenium.dev/selenium/docs/api/py/webdriver/selenium.webdriver.common.action_chains.html#selenium.webdriver.common.action_chains.ActionChains.move_to_element
-        """
-        
-        page = Tester.driver.get("https://github.com/microsoft/vscode/issues")
-        find_el_author = Tester.driver.find_element(By.XPATH, '//summary[@title="Author"]').click()
-        find_el_input = Tester.driver.find_element(By.XPATH, '//input[@id="author-filter-field"]').send_keys("bpasero")
-        ActionChains(Tester.driver).pause(1).perform()
-        Tester.driver.find_element(By.XPATH, '//button[@value="bpasero"]').click()    
+        6 Проверьте, что автор всех задач введён в поиск
+    """
+        input_text = "bpasero"
+        Tester.driver.get("https://github.com/microsoft/vscode/issues")
+        Tester.driver.find_element(By.XPATH, '//summary[@title="Author"]').click()
+        input_1 = Tester.driver.find_element(By.XPATH, '//input[@id="author-filter-field"]')
+        for simbol in input_text:
+            input_1.send_keys(simbol)
+            ActionChains(Tester.driver).pause(0.2).perform()
+            
 
+
+        item_list = WebDriverWait(Tester.driver, timeout=6) \
+            .until(lambda d: d.find_element(By.XPATH, '//button[@value="bpasero"]'))
+        item_list.click()
+
+        value_input = Tester.driver.find_element(By.CSS_SELECTOR, '#js-issues-search').get_attribute("value")
+
+        text_to_be_present_in_element_value((By.CSS_SELECTOR, '#js-issues-search'), input_text)
+
+
+
+        pass
+
+        #ActionChains(Tester.driver).pause(1).perform()
+        #Tester.driver.find_element(By.XPATH, '//button[@value="bpasero"]').click()
     def test_filling_out_form(seif):
         """
         Кейс №3
@@ -160,8 +176,8 @@ class Tester():
 if __name__ == "__main__":
     
     tester = Tester()
-    tester.test_find_title_bug()
-    # tester.test_select_from_list()
+    # tester.test_find_title_bug()
+    tester.test_select_from_list()
     # tester.test_filling_out_form()
     #tester.test_course_selection()
     #tester.test_hover()
