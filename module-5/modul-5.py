@@ -6,6 +6,10 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.firefox.options import Options as Firefox_options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import InvalidSessionIdException, StaleElementReferenceException
+from pathlib import Path
+current_path = Path(__file__)
+driver_path = current_path.parent.parent.joinpath("geckodriver-v0.31.0-win64", "geckodriver.exe")
+
 path = "..\.\geckodriver-v0.31.0-win64\geckodriver.exe"
 
 class Tester():
