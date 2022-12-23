@@ -222,7 +222,7 @@ class Tester():
         Шаги:
         1 Откройте страницу https://github.com/microsoft/vscode/graphs/commit-activity.
         2 Наведите мышку на график.
-        3 Проверьте, что мышка навелась корректно.  
+        3 Проверьте, что в отображаемом тултипе находится ожидаемые вами значения.  
         """
         
         page = Tester.driver.get("https://github.com/microsoft/vscode/graphs/commit-activity")
@@ -234,6 +234,14 @@ class Tester():
             .move_to_element(graf)\
             .perform()
 
+        tultype = WebDriverWait(Tester.driver, timeout=6) \
+                    .until(lambda d: d.find_element(By.CSS_SELECTOR, 'div.svg-tip > strong'))
+        tultype_text = '287'
+        assert tultype.text == tultype_text, f"Текст в тултипе не содержит {tultype_text}"
+
+        print("Тест завершен успешно.")
+        pass
+
        
 
 
@@ -241,9 +249,9 @@ class Tester():
 if __name__ == "__main__":
     
     tester = Tester()
-    # tester.test_find_title_bug()
+    tester.test_find_title_bug()
     # tester.test_select_from_list()
-    #tester.test_filling_out_form()
-    #tester.test_course_selection()
-    tester.test_hover()
+    # tester.test_filling_out_form()
+    # tester.test_course_selection()
+    # tester.test_hover()
 
