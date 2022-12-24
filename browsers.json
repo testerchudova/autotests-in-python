@@ -1,0 +1,12 @@
+{
+    "chrome": {
+        "default": "latest",
+        "versions": {
+            "latest": {
+                "image": "D:\\Ekaterina\\image",
+                "port": "4444",
+                "path": "/wd/hub"
+            }
+        }
+    }
+}

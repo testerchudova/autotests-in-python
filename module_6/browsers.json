@@ -1,0 +1,12 @@
+{
+    "chrome": {
+        "default": "108.0",
+        "versions": {
+            "108.0": {
+                "image": "image",
+                "port": "4444",
+                "path": "/wd/hub"
+            }
+        }
+    }
+}
