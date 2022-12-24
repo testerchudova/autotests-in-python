@@ -1,3 +1,5 @@
 /.idea
 *.log
 DEV/~$Книга1.xlsx
+/env
+/module_6/env/
