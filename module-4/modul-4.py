@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 from selenium.webdriver.firefox.options import Options as Firefox_options
+
 path = "..\.\geckodriver-v0.31.0-win64\geckodriver.exe"
 
 class Tester():
