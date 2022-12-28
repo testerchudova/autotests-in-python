@@ -1,20 +1,25 @@
-from selenium.webdriver import Chrome, Remote
-from selenium.webdriver.chrome.options import ChromiumOptions as ChromeOptions
-import chromedriver_binary
+from selenium.webdriver import Chrome, Remote, ChromeOptions
+#from selenium.webdriver.chrome.options import ChromiumOptions as ChromeOptions
+#import chromedriver_binary
 
 
 
 def run_script():
-    # options = ChromeOptions()
-    # driver = Chrome(options=options)
-    # driver.get("https://selenium-python.readthedocs.io/locating-elements.html")
 
-    driver = Remote(desired_capabilities={
-        "browserName":"chrome",
-        "browserVersion":"latest"
-    }, command_executor="http://127.0.0.1")
+    capabilities = {
+        "browserName": "chrome",
+        "browserVersion": "108.0",
+        "selenoid:options": {
+            "enableVNC": True,
+            "enableVideo": False,
+            "sessionTimeout": "2h"
+        }
+    }
+
+    driver = Remote(command_executor="http://localhost:4444/wd/hub", desired_capabilities=capabilities)
+
     driver.get("https://selenium-python.readthedocs.io/locating-elements.html")
-
+    driver.quit()
     pass
 
 if __name__ == "__main__":

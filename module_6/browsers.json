@@ -3,9 +3,9 @@
         "default": "108.0",
         "versions": {
             "108.0": {
-                "image": "image",
+                "image": ["D:\\Ekaterina\\autotests-in-python\\module_6\\chromedriver.exe"],
                 "port": "4444",
-                "path": "/wd/hub"
+                "path": "/"
             }
         }
     }
