@@ -4,6 +4,10 @@ DEV/~$Книга1.xlsx
 /env
 /module_6/env/
 /module_6/51.0'
-/module_6/browsers1.json
-/module_6/log terminal.txt
-
+/module_6/service/browsers1.json
+/module_6/service/log terminal.txt
+/module_6/my_allure_results/*
+/module_6/service/commands.txt
+/module_6/junit.xml
+/module_6/service/
+/module_6/my_allure_results/

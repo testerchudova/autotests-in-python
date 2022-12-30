@@ -12,4 +12,6 @@ dependencies:
     - pytest
     - beautifulsoup4
     - python-chromedriver-binary=108.0.5359.71.0
+pip:
+    - allure-pytest
 
