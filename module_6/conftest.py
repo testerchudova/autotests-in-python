@@ -1,3 +1,12 @@
+import logging.config
+from pathlib import Path
+current_path = Path(__file__)
+logging_path = current_path.parent.joinpath("logging.ini")
+
+logging.config.fileConfig(logging_path)
+
+
+
 pytest_plugins = [
     "src.fixtures"
 ]
