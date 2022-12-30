@@ -8,13 +8,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.expected_conditions import text_to_be_present_in_element_value
 from selenium.common.exceptions import StaleElementReferenceException
 
+from module_6.src.Utils.сhecking_elements import is_element
+from module_6.src.actions.actions import moving_element
 
 
 class TestExample():
-
-    def is_element(cls, common_by, selector, selenium):
-        is_element = len(selenium.find_elements(common_by, selector)) > 0
-        return is_element
 
     def test_find_title_bug(seif, selenium):
         """
@@ -38,7 +36,7 @@ class TestExample():
 
         page = 1
 
-        while not TestExample.is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]', selenium) and (page < 10):
+        while not is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]', selenium) and (page < 10):
             try:
                 titles = WebDriverWait(selenium, timeout=3) \
                     .until(lambda d: d.find_elements(By.CSS_SELECTOR, \
@@ -105,7 +103,7 @@ class TestExample():
         page = 1
         namber = namber / 1000
 
-        while not TestExample.is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]', selenium):
+        while not is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]', selenium):
             try:
                 items_list = WebDriverWait(selenium, timeout=6) \
                     .until(lambda d: d.find_elements(By.XPATH, '//a[@class = "Link--muted"]'))
@@ -118,10 +116,6 @@ class TestExample():
                 continue
             page += 1
 
-        print("Тест завершен успешно.")
-
-        pass
-
     def test_course_selection(seif, selenium):
         """
         Кейс №4
@@ -133,28 +127,30 @@ class TestExample():
         5 Проверьте, что в списке находятся те курсы, которые вы ожидали.
         """
 
-        page = selenium.get("https://skillbox.ru/code/")
+        selenium.get("https://skillbox.ru/code/")
         selenium.find_element(By.CSS_SELECTOR, 'input[value="profession"]+span').click()
         selenium.find_element(By.XPATH, '//span[span[contains(text(),"Android")]]').click()
         selenium.find_element(By.XPATH, '//span[span[contains(text(),"Backend-разработка")]]').click()
         butt_end = selenium.find_element(By.CSS_SELECTOR, 'div[aria-valuetext="24"]>button')
         butt_first = selenium.find_element(By.CSS_SELECTOR, 'div[aria-valuetext="1"]>button')
 
-        ActionChains(selenium) \
-            .click_and_hold(butt_first) \
-            .move_by_offset(50, 0) \
-            .release() \
-            .perform()
+        moving_element(selenium, butt_first, [50, 0])
+        # ActionChains(selenium) \
+        #     .click_and_hold(butt_first) \
+        #     .move_by_offset(50, 0) \
+        #     .release() \
+        #     .perform()
 
-        ActionChains(selenium) \
-            .click_and_hold(butt_end) \
-            .move_by_offset(-60, 0) \
-            .release() \
-            .perform()
+        moving_element(selenium, butt_end, [-60, 0])
+        # ActionChains(selenium) \
+        #     .click_and_hold(butt_end) \
+        #     .move_by_offset(-60, 0) \
+        #     .release() \
+        #     .perform()
 
         list_courses = selenium.find_elements(By.CSS_SELECTOR, 'a.ui-product-card-main__wrap')
         second = 6
-        if TestExample.is_element(By.CSS_SELECTOR, 'button.courses-block__load', selenium):
+        if is_element(By.CSS_SELECTOR, 'button.courses-block__load', selenium):
             ActionChains(selenium).pause(1).perform()
             selenium.find_element(By.CSS_SELECTOR, 'button.courses-block__load').click()
 
@@ -183,9 +179,6 @@ class TestExample():
 
         assert all(res) == True, f"Не все во всех карточках содержится хотябы одно из слов {list_cour}"
 
-        print("Тест завершен успешно.")
-
-        pass
 
     @allure.step("Проверка что в отображаемом тултипе находится ожидаемые вами значения")
     def test_hover(seif, selenium):

@@ -1,5 +1,5 @@
 pytest_plugins = [
-    "src.fixtures.system.browser"
+    "src.fixtures"
 ]
 
 def pytest_addoption(parser):
