@@ -1,4 +1,5 @@
 from selenium.webdriver import Remote
+import logging
 from selenium.webdriver.chrome.options import Options as Chrome_options
 import pytest
 
@@ -20,6 +21,6 @@ def selenium(pytestconfig):
     }
 
     driver = Remote(command_executor=pytestconfig.getini("selenium_url"), desired_capabilities=capabilities, options=options)
-
+    logging.info("Объект driver создан")
     yield driver
     driver.quit()

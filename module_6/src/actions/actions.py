@@ -8,3 +8,8 @@ def moving_element(selenium, element, coordinates:list):
         .move_by_offset(x, y) \
         .release() \
         .perform()
+
+def move_to_element(selenium, graf):
+    ActionChains(selenium) \
+        .move_to_element(graf) \
+        .perform()

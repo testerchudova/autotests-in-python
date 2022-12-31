@@ -5,8 +5,6 @@ logging_path = current_path.parent.joinpath("logging.ini")
 
 logging.config.fileConfig(logging_path)
 
-
-
 pytest_plugins = [
     "src.fixtures"
 ]

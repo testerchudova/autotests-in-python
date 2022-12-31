@@ -1,3 +1,5 @@
+import logging
+
 import allure
 from time import sleep
 from random import uniform
@@ -8,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.expected_conditions import text_to_be_present_in_element_value
 from selenium.common.exceptions import StaleElementReferenceException
 from module_6.src.Utils.сhecking_elements import is_element
-from module_6.src.actions.actions import moving_element
+from module_6.src.actions.actions import *
 
 
 class TestExample():
@@ -177,20 +179,24 @@ class TestExample():
         2 Наведите мышку на график.
         3 Проверьте, что в отображаемом тултипе находится ожидаемые вами значения.
         """
-
-        page = selenium.get("https://github.com/microsoft/vscode/graphs/commit-activity")
+        logging.info("Запускаем страницу browser, URL https://github.com/microsoft/vscode/graphs/commit-activity")
+        selenium.get("https://github.com/microsoft/vscode/graphs/commit-activity")
         sleep(1)
 
-        graf = find_el_select_language = selenium.find_element(By.CSS_SELECTOR, 'section g:nth-of-type(15)')
+        graf = selenium.find_element(By.CSS_SELECTOR, 'section g:nth-of-type(15)')
 
-        ActionChains(selenium) \
-            .move_to_element(graf) \
-            .perform()
+        move_to_element(selenium, graf)
+
+        # ActionChains(selenium) \
+        #     .move_to_element(graf) \
+        #     .perform()
 
         tultype = WebDriverWait(selenium, timeout=6) \
             .until(lambda d: d.find_element(By.CSS_SELECTOR, 'div.svg-tip > strong'))
         tultype_text = '287'
         assert tultype.text == tultype_text, f"Текст в тултипе не содержит {tultype_text}"
+
+        logging.info("Тест завершен успешно")
 
 
 """
