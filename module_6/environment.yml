@@ -8,5 +8,6 @@ dependencies:
     - pytest
     - python-chromedriver-binary=108.0.5359.71.0
     - pip:
-        - allure-pytest
+       - allure-pytest
+       - flake8
 

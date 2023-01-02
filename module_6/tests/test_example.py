@@ -1,16 +1,14 @@
 import logging
 from pprint import pprint
-
 import allure
 from random import uniform
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.expected_conditions import text_to_be_present_in_element_value
 from selenium.common.exceptions import StaleElementReferenceException
 from module_6.src.Utils.сhecking_elements import is_element
-from module_6.src.actions.actions import *
-
-
+from module_6.src.actions.actions import *  # noqa
 
 
 class TestExample():
@@ -21,21 +19,23 @@ class TestExample():
         Шаги:
         1 Откройте страницу https://github.com/microsoft/vscode/issues.
         2 Введите в поиск фильтр in:title.
-        3 Введите в поиск какие-то ключевые слова (слова, по которым можно найти любую из задач по названию). Например: bug.
+        3 Введите в поиск какие-то ключевое слово bug (слова, по которым можно найти любую из задач по названию).
         4 Нажмите на enter.
         5 Получите все названия задач.
-        6 Проверьте, что каждая из задач содержит в названии слово bug (важно не учитывать регистр, то есть Bug и bug — это одно и то же).
+        6 Проверьте, что каждая из задач содержит в названии слово bug (важно не учитывать регистр,
+        то есть Bug и bug — это одно и то же).
         """
         line = "bug"
-        with allure.step('Открываем страницу https://github.com/microsoft/vscode/issues'):
-            selenium.get("https://github.com/microsoft/vscode/issues")
-            with allure.step(f'Очищаем поле ввода и вводим in:title'):
+        url = 'https://github.com/microsoft/vscode/issues'
+        with allure.step(f'Открываем страницу {url}'):
+            selenium.get(url)
+            with allure.step('Очищаем поле ввода и вводим in:title'):
                 find_el = selenium.find_element(By.CSS_SELECTOR, "input#js-issues-search")
                 find_el.clear()
                 find_el.send_keys("in:title ")
             with allure.step(f'Вводим {line}'):
                 find_el.send_keys(line)
-            with allure.step(f'Нажимаем ENTER'):
+            with allure.step('Нажимаем ENTER'):
                 ActionChains(selenium).key_down(Keys.ENTER).perform()
 
         page = 1
@@ -44,15 +44,16 @@ class TestExample():
             try:
                 with allure.step(f'Получаем все названия задач на page {page}'):
                     titles = WebDriverWait(selenium, timeout=6) \
-                        .until(lambda d: d.find_elements(By.CSS_SELECTOR, \
-                        'div[class="js-navigation-container js-active-navigation-container"]>div'))
+                        .until(lambda d: d.find_elements(By.CSS_SELECTOR, 'div[class="js-navigation-container '
+                                                                          'js-active-navigation-container"]>div'))
                     deb = [item.text for item in titles]
                     list_titles = [item.text.upper().find(line.upper()) != -1 for item in titles]
                     pprint(list(zip(deb, list_titles)))
                     test_page_ok = all(list_titles)
 
                 with allure.step(f'Проверяем, что каждая из задач содержит в названии слово {line}'):
-                    assert test_page_ok == True, f"'Один из элементов title, на странице {page} не содержит подстроки {line}"
+                    assert test_page_ok == True, \
+                        f"'Один из элементов title, на странице {page} не содержит подстроки {line}"
 
                 with allure.step(f'Переходим на page {page + 1}'):
                     button_next = selenium.find_element(By.CSS_SELECTOR, 'a.next_page')
@@ -75,8 +76,9 @@ class TestExample():
         6 Проверьте, что автор всех задач введён в поиск
     """
         input_text = "bpasero"
-        with allure.step('Открываем страницу https://github.com/microsoft/vscode/issues'):
-            selenium.get("https://github.com/microsoft/vscode/issues")
+        url = 'https://github.com/microsoft/vscode/issues'
+        with allure.step(f'Открываем страницу {url}'):
+            selenium.get(url)
 
         with allure.step('Нажмаем на кнопку Author'):
             selenium.find_element(By.XPATH, '//summary[@title="Author"]').click()
@@ -88,14 +90,14 @@ class TestExample():
                 input_1.send_keys(simbol)
                 pause(selenium, uniform(0.2, 1))
 
-        with allure.step(f'Дожидаемся появления в списке нужного автора'):
+        with allure.step('Дожидаемся появления в списке нужного автора'):
             item_list = WebDriverWait(selenium, timeout=6) \
                 .until(lambda d: d.find_element(By.XPATH, '//button[@value="bpasero"]'))
 
-        with allure.step(f'Выбераем в выпадающем списке элемент с названием'):
+        with allure.step('Выбераем в выпадающем списке элемент с названием'):
             item_list.click()
 
-        with allure.step(f'Проверяем, что автор всех задач введён в поиск'):
+        with allure.step('Проверяем, что автор всех задач введён в поиск'):
             is_text__value = text_to_be_present_in_element_value((By.CSS_SELECTOR, '#js-issues-search'), input_text)(
                 selenium)
             assert is_text__value == True, f"В строке поиска отсутствует проверяемая сторка {input_text}"
@@ -114,8 +116,9 @@ class TestExample():
         7 Проверьте, что в списке отображаются репозитории с количеством звёзд >20000
         """
         number = 20000
-        with allure.step('Открываем страницу https://github.com/search/advanced'):
-            page = selenium.get("https://github.com/search/advanced")
+        url = 'https://github.com/search/advanced'
+        with allure.step(f'Открываем страницу {url}'):
+            page = selenium.get(url)
 
         with allure.step('В поле языка, на котором написан код, выбераем Python'):
             find_el_select_language = selenium.find_element(By.XPATH, '//select[@id="search_language"]')
@@ -219,48 +222,29 @@ class TestExample():
         2 Наведите мышку на график.
         3 Проверьте, что в отображаемом тултипе находится ожидаемые вами значения.
         """
-        logging.info("Запускаем страницу browser, URL https://github.com/microsoft/vscode/graphs/commit-activity")
+        url = 'https://github.com/microsoft/vscode/graphs/commit-activity'
+        logging.info(f"Запускаем страницу browser, URL {url}")
 
-        with allure.step('Открываем страницу https://github.com/microsoft/vscode/graphs/commit-activity'):
-            selenium.get("https://github.com/microsoft/vscode/graphs/commit-activity")
+        with allure.step(f'Открываем страницу {url}'):
+            selenium.get(url)
             pause(selenium, 2)
 
         with allure.step('Поиск столбца гистограммы'):
+            logging.info("Поиск столбца гистограммы")
             graf = selenium.find_element(By.CSS_SELECTOR, 'section g:nth-of-type(15)')
 
         with allure.step('Перемещаем указатель мыши на столбец гистограммы'):
+            logging.info("Перемещаем указатель мыши на столбец гистограммы")
             move_to_element(selenium, graf)
 
         with allure.step('Проверяем, что в отображаемом тултипе находится ожидаемые значения'):
-            tultype = lambda d: d.find_element(By.CSS_SELECTOR, 'div.svg-tip > strong')
+            logging.info("Проверяем, что в отображаемом тултипе находится ожидаемые значения")
+
+            def tultype(d):
+                tultype = d.find_element(By.CSS_SELECTOR, 'div.svg-tip > strong')
+                return tultype
             tultype = WebDriverWait(selenium, timeout=6).until(tultype)
-            tultype_text = '262'
+            tultype_text = '166'
             assert tultype.text == tultype_text, f"Текст в тултипе не содержит {tultype_text}"
 
         logging.info("Тест завершен успешно")
-
-
-"""
-@allure.step("Проверка заголовка страниц")
-def check_title(driver, title):
-    assert driver.title == title
-
-
-class TestExample:
-    def test_example(self, selenium):
-        
-        selenium.get("https://selenium-python.readthedocs.io/locating-elements.html")
-        check_title(selenium, '4. Locating Elements — Selenium Python Bindings 2 documentation')
-        pass
-
-
-    def test_example_2(self, selenium):
-        
-        selenium.get("https://www.ivi.ru/watch/132291")
-        check_title(selenium, '4. Locating Elements — Selenium Python Bindings 2 documentation')
-
-
-    def test_example2(self):
-        print("script запущен")
-        
-"""

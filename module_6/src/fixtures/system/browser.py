@@ -4,7 +4,6 @@ from selenium.webdriver.chrome.options import Options as Chrome_options
 import pytest
 
 
-
 @pytest.fixture()
 def selenium(pytestconfig):
     options = Chrome_options()
@@ -20,7 +19,8 @@ def selenium(pytestconfig):
         }
     }
 
-    driver = Remote(command_executor=pytestconfig.getini("selenium_url"), desired_capabilities=capabilities, options=options)
+    driver = Remote(command_executor=pytestconfig.getini("selenium_url"), desired_capabilities=capabilities,
+                    options=options)
     logging.info("Объект driver создан")
     yield driver
     driver.quit()
