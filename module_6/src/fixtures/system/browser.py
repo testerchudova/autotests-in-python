@@ -6,6 +6,7 @@ import pytest
 
 @pytest.fixture()
 def selenium(pytestconfig):
+
     options = Chrome_options()
     options.page_load_strategy = "normal"
 
@@ -18,9 +19,9 @@ def selenium(pytestconfig):
             "sessionTimeout": "2h"
         }
     }
-
+    logging.info("Браузер запустился")
     driver = Remote(command_executor=pytestconfig.getini("selenium_url"), desired_capabilities=capabilities,
                     options=options)
-    logging.info("Объект driver создан")
+    logging.info("Браузер закончил работу")
     yield driver
     driver.quit()
