@@ -43,11 +43,16 @@ class TestExample():
         while not is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]', selenium) and (page < 3):
             try:
                 with allure.step(f'Получаем все названия задач на page {page}'):
-                    titles = WebDriverWait(selenium, timeout=20) \
-                        .until(lambda d: d.find_elements(By.CSS_SELECTOR, 'div[class="js-navigation-container '
-                                                                          'js-active-navigation-container"]>div'))
-                    deb = [item.text for item in titles]
-                    list_titles = [item.text.upper().find(line.upper()) != -1 for item in titles]
+
+                    @WebDriverWait(selenium, timeout=20)
+                    def get_titles(d):
+                        return d.find_elements(By.CSS_SELECTOR, 'div[class="js-navigation-container '
+                                                                'js-active-navigation-container"]>div')
+
+                    get_titles()
+
+                    deb = [item.text for item in get_titles.res]
+                    list_titles = [item.text.upper().find(line.upper()) != -1 for item in get_titles.res]
                     pprint(list(zip(deb, list_titles)))
                     test_page_ok = all(list_titles)
 
@@ -90,12 +95,14 @@ class TestExample():
                 input_1.send_keys(simbol)
                 pause(selenium, uniform(0.2, 1))
 
-        with allure.step('Дожидаемся появления в списке нужного автора'):
-            item_list = WebDriverWait(selenium, timeout=6) \
-                .until(lambda d: d.find_element(By.XPATH, '//button[@value="bpasero"]'))
+            @WebDriverWait(selenium, timeout=20)
+            def get_button(d):
+                return d.find_element(By.XPATH, '//button[@value="bpasero"]')
+
+            get_button()
 
         with allure.step('Выбераем в выпадающем списке элемент с названием'):
-            item_list.click()
+            get_button.res.click()
 
         with allure.step('Проверяем, что автор всех задач введён в поиск'):
             is_text__value = text_to_be_present_in_element_value((By.CSS_SELECTOR, '#js-issues-search'), input_text)(
@@ -138,9 +145,16 @@ class TestExample():
         with allure.step(f'Проверяем, что в списке отображаются репозитории с количеством звёзд > {number}k'):
             while not is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]', selenium) and (page < 3):
                 try:
-                    items_list = WebDriverWait(selenium, timeout=6) \
-                        .until(lambda d: d.find_elements(By.XPATH, '//a[@class = "Link--muted"]'))
-                    test_page_ok = all([float(item.text[0:-1]) > number for item in items_list])
+                    # items_list = WebDriverWait(selenium, timeout=6) \
+                    #     .until(lambda d: d.find_elements(By.XPATH, '//a[@class = "Link--muted"]'))
+
+                    @WebDriverWait(selenium, timeout=20)
+                    def items_list(d):
+                        return d.find_elements(By.XPATH, '//a[@class = "Link--muted"]')
+
+                    items_list()
+
+                    test_page_ok = all([float(item.text[0:-1]) > number for item in items_list.res])
 
                     with allure.step(f'Количество звезд на page {page}, соответствует условию > {number}k'):
                         assert test_page_ok, f"Количество звезд не соответствует условию > {number}k"
@@ -240,11 +254,12 @@ class TestExample():
         with allure.step('Проверяем, что в отображаемом тултипе находится ожидаемые значения'):
             logging.info("Проверяем, что в отображаемом тултипе находится ожидаемые значения")
 
+            @WebDriverWait(selenium, timeout=20)
             def tultype(d):
-                tultype = d.find_element(By.CSS_SELECTOR, 'div.svg-tip > strong')
-                return tultype
-            tultype = WebDriverWait(selenium, timeout=6).until(tultype)
+                return d.find_element(By.CSS_SELECTOR, 'div.svg-tip > strong')
+
+            tultype()
             tultype_text = '166'
-            assert tultype.text in tultype_text, f"Текст в тултипе не содержит {tultype_text}"
+            assert tultype.res.text in tultype_text, f"Текст в тултипе не содержит {tultype_text}"
 
         logging.info("Тест завершен успешно")
