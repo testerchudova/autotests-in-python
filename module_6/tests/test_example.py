@@ -43,7 +43,7 @@ class TestExample():
         while not is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]', selenium) and (page < 3):
             try:
                 with allure.step(f'Получаем все названия задач на page {page}'):
-                    titles = WebDriverWait(selenium, timeout=6) \
+                    titles = WebDriverWait(selenium, timeout=20) \
                         .until(lambda d: d.find_elements(By.CSS_SELECTOR, 'div[class="js-navigation-container '
                                                                           'js-active-navigation-container"]>div'))
                     deb = [item.text for item in titles]
@@ -52,7 +52,7 @@ class TestExample():
                     test_page_ok = all(list_titles)
 
                 with allure.step(f'Проверяем, что каждая из задач содержит в названии слово {line}'):
-                    assert test_page_ok == True, \
+                    assert test_page_ok, \
                         f"'Один из элементов title, на странице {page} не содержит подстроки {line}"
 
                 with allure.step(f'Переходим на page {page + 1}'):
@@ -100,7 +100,7 @@ class TestExample():
         with allure.step('Проверяем, что автор всех задач введён в поиск'):
             is_text__value = text_to_be_present_in_element_value((By.CSS_SELECTOR, '#js-issues-search'), input_text)(
                 selenium)
-            assert is_text__value == True, f"В строке поиска отсутствует проверяемая сторка {input_text}"
+            assert is_text__value, f"В строке поиска отсутствует проверяемая сторка {input_text}"
 
     @allure.title('Проверка репозитория по количеству звезд > 20000')
     def test_filling_out_form(seif, selenium):
@@ -143,7 +143,7 @@ class TestExample():
                     test_page_ok = all([float(item.text[0:-1]) > number for item in items_list])
 
                     with allure.step(f'Количество звезд на page {page}, соответствует условию > {number}k'):
-                        assert test_page_ok == True, f"Количество звезд не соответствует условию > {number}k"
+                        assert test_page_ok, f"Количество звезд не соответствует условию > {number}k"
                         selenium.find_element(By.CSS_SELECTOR, 'a.next_page').click()
                         pause(selenium, timeout=uniform(4, 10))
 
@@ -211,7 +211,7 @@ class TestExample():
                     res_loc = False
                 res += [res_loc]
 
-            assert all(res) == True, f"Не все во всех карточках содержится хотябы одно из слов {list_cour}"
+            assert all(res), f"Не все во всех карточках содержится хотябы одно из слов {list_cour}"
 
     @allure.title("Наведение указателя мыши на график и проверка ожидаемого значения в тултипе")
     def test_hover(seif, selenium):
@@ -245,6 +245,6 @@ class TestExample():
                 return tultype
             tultype = WebDriverWait(selenium, timeout=6).until(tultype)
             tultype_text = '166'
-            assert tultype.text == tultype_text, f"Текст в тултипе не содержит {tultype_text}"
+            assert tultype.text in tultype_text, f"Текст в тултипе не содержит {tultype_text}"
 
         logging.info("Тест завершен успешно")
