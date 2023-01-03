@@ -1,5 +1,5 @@
 [flake8]
-ignore  =  E712, F405
+ignore  =  F405
 exclude  =  .pytest_cache,bin,env,loggin,my_allure_results,service, D:\\Ekaterina\\autotests-in-python\\module_6\\conftest.py
 max-line-length = 120
 max-complexity  =  10
