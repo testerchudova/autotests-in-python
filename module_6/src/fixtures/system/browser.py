@@ -9,7 +9,8 @@ def selenium(pytestconfig):
 
     options = Chrome_options()
     options.page_load_strategy = "normal"
-
+    options.add_argument('--window-size=1920,1080')
+    options.add_argument('----window-position=1530,-220')
     capabilities = {
         "browserName": pytestconfig.getini("browser_name"),
         "browserVersion": pytestconfig.getini("browser_version"),
@@ -22,6 +23,7 @@ def selenium(pytestconfig):
     logging.info("Браузер запустился")
     driver = Remote(command_executor=pytestconfig.getini("selenium_url"), desired_capabilities=capabilities,
                     options=options)
-    logging.info("Браузер закончил работу")
+
     yield driver
     driver.quit()
+    logging.info("Браузер завершил сессию")
