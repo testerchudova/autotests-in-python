@@ -2,7 +2,16 @@
 *.log
 DEV/~$Книга1.xlsx
 /env
-/module_6/env/
+
+/module_7/51.0'
+/module_7/service/browsers1.json
+/module_7/service/log terminal.txt
+/module_7/my_allure_results/*
+/module_7/service/commands.txt
+/module_7/junit.xml
+/module_7/service/
+/module_7/my_allure_results/
+/module_7/bin/
 /module_6/51.0'
 /module_6/service/browsers1.json
 /module_6/service/log terminal.txt
