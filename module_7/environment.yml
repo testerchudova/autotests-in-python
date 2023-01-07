@@ -4,14 +4,11 @@ channels:
 dependencies:
     - python=3.9.12
     - requests
-    - numpy
-    - openpyxl
-    - xlrd
-    - xlwt
     - selenium
     - pytest
-    - beautifulsoup4
     - python-chromedriver-binary=108.0.5359.71.0
+    - pip
     - pip:
-        - allure-pytest
-
+       - allure-pytest
+       - flake8
+       - pytest-playwright

@@ -30,3 +30,10 @@ def selenium(pytestconfig):
     logging.info("Браузер завершил сессию")
 
 
+@pytest.fixture
+def web_driver_wait(selenium):
+    def callback(by_selector, selector):
+        res_element = wait.WebDriverWait(selenium, timeout=60).\
+            until(lambda driver: driver.find_element(by_selector, selector))
+        return res_element
+    return callback
