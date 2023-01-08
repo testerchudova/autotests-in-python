@@ -7,7 +7,6 @@ from selenium.webdriver.support import wait
 
 @pytest.fixture(scope='class')
 def selenium(pytestconfig):
-
     options = Chrome_options()
     options.page_load_strategy = "normal"
     options.add_argument('--window-size=1920,1080')
@@ -31,9 +30,8 @@ def selenium(pytestconfig):
 
 
 @pytest.fixture
-def web_driver_wait(selenium):
-    def callback(by_selector, selector):
-        res_element = wait.WebDriverWait(selenium, timeout=60).\
-            until(lambda driver: driver.find_element(by_selector, selector))
-        return res_element
+def web_driver_wait(page):
+    def callback(selector):
+        page.wait_for_selector(selector)
+        return page.locator(selector)
     return callback

@@ -28,13 +28,4 @@ def pause(selenium, timeout=1):
     logging.info(f'Выполнена пауза {timeout} сек')
 
 
-def WebDriverWait(selenium, timeout):
-    def decorator(fn):
-        def func():
-            res_element = wait.WebDriverWait(selenium, timeout).until(fn)
-            setattr(func, 'res', res_element)
-            return res_element
-        return func
-    return decorator
-
 

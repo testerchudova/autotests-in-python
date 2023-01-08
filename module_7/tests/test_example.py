@@ -1,4 +1,5 @@
 import logging
+from time import sleep
 from pprint import pprint
 import allure
 from random import uniform
@@ -7,14 +8,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.expected_conditions import text_to_be_present_in_element_value
 from selenium.common.exceptions import StaleElementReferenceException
-from module_7.src.Utils.сhecking_elements import is_element
+from module_7.src.Utils.сhecking_elements import  *  # noqa
 from module_7.src.actions.actions import *  # noqa
 
 
 
 class TestExample():
     @allure.title('Поиск задач на github по заголовкам')
-    def test_find_title_bug(seif, selenium):
+    def test_find_title_bug(seif, web_driver_wait, page):
         """
         Кейс №1
         Шаги:
@@ -26,50 +27,43 @@ class TestExample():
         6 Проверьте, что каждая из задач содержит в названии слово bug (важно не учитывать регистр,
         то есть Bug и bug — это одно и то же).
         """
-        line = "bug"
+        predicate = "bug"
         url = 'https://github.com/microsoft/vscode/issues'
         with allure.step(f'Открываем страницу {url}'):
-            selenium.get(url)
+            page.goto(url, wait_until='domcontentloaded')
             with allure.step('Очищаем поле ввода и вводим in:title'):
-                find_el = selenium.find_element(By.CSS_SELECTOR, "input#js-issues-search")
-                find_el.clear()
-                find_el.send_keys("in:title ")
-            with allure.step(f'Вводим {line}'):
-                find_el.send_keys(line)
+                find_el = page.locator("input#js-issues-search")
+                find_el.fill("in:title ")
+
+            with allure.step(f'Вводим {predicate}'):
+                page.keyboard.type(predicate)
             with allure.step('Нажимаем ENTER'):
-                ActionChains(selenium).key_down(Keys.ENTER).perform()
+                page.keyboard.press("Enter")
 
-        page = 1
+        page_1 = 1
 
-        while not is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]', selenium) and (page < 3):
+        while not is_element(page, 'span[class="next_page disabled"]') and (page_1 < 3):
             try:
-                with allure.step(f'Получаем все названия задач на page {page}'):
+                with allure.step(f'Получаем все названия задач на page {page_1}'):
 
-                    @WebDriverWait(selenium, timeout=20)
-                    def get_titles(d):
-                        return d.find_elements(By.CSS_SELECTOR, 'div[class="js-navigation-container '
-                                                                'js-active-navigation-container"]>div')
-
-                    get_titles()
-
-                    deb = [item.text for item in get_titles.res]
-                    list_titles = [item.text.upper().find(line.upper()) != -1 for item in get_titles.res]
-                    pprint(list(zip(deb, list_titles)))
+                    get_titles = web_driver_wait('div[class="js-navigation-container js-active-navigation-container"]>div')
+                    sleep(1)
+                    list_titles = [text_contain(item, predicate) for item in get_titles.all()]
                     test_page_ok = all(list_titles)
 
-                with allure.step(f'Проверяем, что каждая из задач содержит в названии слово {line}'):
+                with allure.step(f'Проверяем, что каждая из задач содержит в названии слово {predicate}'):
                     assert test_page_ok, \
-                        f"'Один из элементов title, на странице {page} не содержит подстроки {line}"
+                        f'Один из элементов title, на странице {page_1} не содержит подстроки {predicate}'
 
-                with allure.step(f'Переходим на page {page + 1}'):
-                    button_next = selenium.find_element(By.CSS_SELECTOR, 'a.next_page')
-                    button_next.click()
+                with allure.step(f'Переходим на page {page_1 + 1}'):
+                    page.locator('div.Box.mt-3+div a.next_page').click()
             except StaleElementReferenceException:
                 continue
-            page += 1
+
+            page_1 += 1
 
     @allure.title('Выбор автора из выподающего списка')
-    def test_select_from_list(seif, selenium):
+    def test_select_from_list(seif, page, web_driver_wait):
         """
         Кейс №2
         Шаги:
@@ -84,34 +78,32 @@ class TestExample():
         input_text = "bpasero"
         url = 'https://github.com/microsoft/vscode/issues'
         with allure.step(f'Открываем страницу {url}'):
-            selenium.get(url)
+            page.goto(url, wait_until='domcontentloaded')
 
         with allure.step('Нажмаем на кнопку Author'):
-            selenium.find_element(By.XPATH, '//summary[@title="Author"]').click()
+           page.locator('//summary[@title="Author"]').click()
 
-        input_1 = selenium.find_element(By.XPATH, '//input[@id="author-filter-field"]')
-
+        search_line = page.locator('#js-issues-search')
+        input_1 = page.locator('//input[@id="author-filter-field"]')
+        search_line.clear()
         with allure.step(f'Вводим в поиск имя {input_text}'):
+            input_1.clear()
             for simbol in input_text:
-                input_1.send_keys(simbol)
-                pause(selenium, uniform(0.2, 1))
+                page.keyboard.type(simbol)
+                sleep(0.3)
 
-            @WebDriverWait(selenium, timeout=20)
-            def get_button(d):
-                return d.find_element(By.XPATH, '//button[@value="bpasero"]')
-
-            get_button()
+            get_button = web_driver_wait('//button[@value="bpasero"]')
 
         with allure.step('Выбераем в выпадающем списке элемент с названием'):
-            get_button.res.click()
+            get_button.click()
 
         with allure.step('Проверяем, что автор всех задач введён в поиск'):
-            is_text__value = text_to_be_present_in_element_value((By.CSS_SELECTOR, '#js-issues-search'), input_text)(
-                selenium)
-            assert is_text__value, f"В строке поиска отсутствует проверяемая сторка {input_text}"
+
+            is_text_value = text_contain_input_value(search_line, input_text)
+            assert is_text_value, f"В строке поиска отсутствует проверяемая сторка {input_text}"
 
     @allure.title('Проверка репозитория по количеству звезд > 20000')
-    def test_filling_out_form(seif, selenium):
+    def test_filling_out_form(seif, selenium, web_driver_wait):
         """
         Кейс №3
         Шаги:
@@ -146,16 +138,8 @@ class TestExample():
         with allure.step(f'Проверяем, что в списке отображаются репозитории с количеством звёзд > {number}k'):
             while not is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]', selenium) and (page < 3):
                 try:
-                    # items_list = WebDriverWait(selenium, timeout=6) \
-                    #     .until(lambda d: d.find_elements(By.XPATH, '//a[@class = "Link--muted"]'))
-
-                    @WebDriverWait(selenium, timeout=20)
-                    def items_list(d):
-                        return d.find_elements(By.XPATH, '//a[@class = "Link--muted"]')
-
-                    items_list()
-
-                    test_page_ok = all([float(item.text[0:-1]) > number for item in items_list.res])
+                    items_list = web_driver_wait(By.XPATH, '//a[@class = "Link--muted"]', el="elements")
+                    test_page_ok = all([float(item.text[0:-1]) > number for item in items_list])
 
                     with allure.step(f'Количество звезд на page {page}, соответствует условию > {number}k'):
                         assert test_page_ok, f"Количество звезд не соответствует условию > {number}k"
@@ -229,7 +213,7 @@ class TestExample():
             assert all(res), f"Не все во всех карточках содержится хотябы одно из слов {list_cour}"
 
     @allure.title("Наведение указателя мыши на график и проверка ожидаемого значения в тултипе")
-    def test_hover(seif, web_driver_wait, selenium):
+    def test_hover(seif, web_driver_wait, page):
         """
         Кейс №5
         Шаги:
@@ -241,22 +225,25 @@ class TestExample():
         logging.info(f"Запускаем страницу browser, URL {url}")
 
         with allure.step(f'Открываем страницу {url}'):
-            selenium.get(url)
-            pause(selenium, 2)
+            page.goto(url, wait_until='domcontentloaded')
+
+            # pause(selenium, 2)
 
         with allure.step('Поиск столбца гистограммы'):
             logging.info("Поиск столбца гистограммы")
-            graf = selenium.find_element(By.CSS_SELECTOR, 'section g:nth-of-type(15)')
+
+            graf = page.locator('section g.bar.mini:nth-of-type(15)')
+            # graf = selenium.find_element(By.CSS_SELECTOR, 'section g:nth-of-type(15)')
 
         with allure.step('Перемещаем указатель мыши на столбец гистограммы'):
             logging.info("Перемещаем указатель мыши на столбец гистограммы")
-            move_to_element(selenium, graf)
+            graf.hover()
 
         with allure.step('Проверяем, что в отображаемом тултипе находится ожидаемые значения'):
             logging.info("Проверяем, что в отображаемом тултипе находится ожидаемые значения")
 
-            tultype = web_driver_wait(By.CSS_SELECTOR, 'div.svg-tip > strong')
-            tultype_text = '166'
-            assert tultype.text in tultype_text, f"Текст в тултипе не содержит {tultype_text}"
+            tultype = web_driver_wait('div.svg-tip > strong')
+            tultype_text = '144'
+            assert tultype.inner_text() in tultype_text, f"Текст в тултипе не содержит {tultype_text}"
 
         logging.info("Тест завершен успешно")
