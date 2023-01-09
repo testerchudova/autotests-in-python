@@ -1,19 +1,13 @@
-import logging
 from time import sleep
-from pprint import pprint
+import re
 import allure
 from random import uniform
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.expected_conditions import text_to_be_present_in_element_value
-from selenium.common.exceptions import StaleElementReferenceException
-from module_7.src.Utils.сhecking_elements import  *  # noqa
+from module_7.src.Utils.сhecking_elements import *  # noqa
 from module_7.src.actions.actions import *  # noqa
 
 
-
 class TestExample():
+
     @allure.title('Поиск задач на github по заголовкам')
     def test_find_title_bug(seif, web_driver_wait, page):
         """
@@ -43,23 +37,18 @@ class TestExample():
         page_1 = 1
 
         while not is_element(page, 'span[class="next_page disabled"]') and (page_1 < 3):
-            try:
-                with allure.step(f'Получаем все названия задач на page {page_1}'):
+            with allure.step(f'Получаем все названия задач на page {page_1}'):
+                get_titles = web_driver_wait('div[class="js-navigation-container js-active-navigation-container"]>div')
+                sleep(uniform(1, 5))
+                list_titles = [text_contain(item, predicate) for item in get_titles.all()]
+                test_page_ok = all(list_titles)
 
-                    get_titles = web_driver_wait('div[class="js-navigation-container js-active-navigation-container"]>div')
-                    sleep(1)
-                    list_titles = [text_contain(item, predicate) for item in get_titles.all()]
-                    test_page_ok = all(list_titles)
+            with allure.step(f'Проверяем, что каждая из задач содержит в названии слово {predicate}'):
+                assert test_page_ok, \
+                    f'Один из элементов title, на странице {page_1} не содержит подстроки {predicate}'
 
-                with allure.step(f'Проверяем, что каждая из задач содержит в названии слово {predicate}'):
-                    assert test_page_ok, \
-                        f'Один из элементов title, на странице {page_1} не содержит подстроки {predicate}'
-
-                with allure.step(f'Переходим на page {page_1 + 1}'):
-                    page.locator('div.Box.mt-3+div a.next_page').click()
-            except StaleElementReferenceException:
-                continue
-
+            with allure.step(f'Переходим на page {page_1 + 1}'):
+                page.locator('div.Box.mt-3+div a.next_page').click()
             page_1 += 1
 
     @allure.title('Выбор автора из выподающего списка')
@@ -81,7 +70,7 @@ class TestExample():
             page.goto(url, wait_until='domcontentloaded')
 
         with allure.step('Нажмаем на кнопку Author'):
-           page.locator('//summary[@title="Author"]').click()
+            page.locator('//summary[@title="Author"]').click()
 
         search_line = page.locator('#js-issues-search')
         input_1 = page.locator('//input[@id="author-filter-field"]')
@@ -98,12 +87,11 @@ class TestExample():
             get_button.click()
 
         with allure.step('Проверяем, что автор всех задач введён в поиск'):
-
             is_text_value = text_contain_input_value(search_line, input_text)
             assert is_text_value, f"В строке поиска отсутствует проверяемая сторка {input_text}"
 
     @allure.title('Проверка репозитория по количеству звезд > 20000')
-    def test_filling_out_form(seif, selenium, web_driver_wait):
+    def test_filling_out_form(seif, page, web_driver_wait):
         """
         Кейс №3
         Шаги:
@@ -118,40 +106,35 @@ class TestExample():
         number = 20000
         url = 'https://github.com/search/advanced'
         with allure.step(f'Открываем страницу {url}'):
-            page = selenium.get(url)
+            page.goto(url, wait_until='domcontentloaded')
 
         with allure.step('В поле языка, на котором написан код, выбераем Python'):
-            find_el_select_language = selenium.find_element(By.XPATH, '//select[@id="search_language"]')
-            find_el_select_language.find_element(By.XPATH, '//option[@value="Python"]').click()
+            page.locator('//select[@id="search_language"]').select_option('Python')
 
         with allure.step(f'В поле количества звёзд у репозитория выберите > {number}'):
-            selenium.find_element(By.XPATH, '//input[@id="search_stars"]').send_keys(f">{number}")
+            page.locator('//input[@id="search_stars"]').fill(f">{number}")
 
         with allure.step('В поле с названием файла вводим environment.yml'):
-            selenium.find_element(By.XPATH, '//input[@id="search_filename"]').send_keys("environment.yml")
+            page.locator('//input[@id="search_filename"]').fill("environment.yml")
 
         with allure.step('Нажмаем на кнопку поиска'):
-            selenium.find_element(By.XPATH, '//div[@class="form-group flattened"]//button').click()
+            page.locator('//div[@class="form-group flattened"]//button').click()
 
-        page = 1
+        page_1 = 1
         number /= 1000
         with allure.step(f'Проверяем, что в списке отображаются репозитории с количеством звёзд > {number}k'):
-            while not is_element(By.CSS_SELECTOR, 'span[class="next_page disabled"]', selenium) and (page < 3):
-                try:
-                    items_list = web_driver_wait(By.XPATH, '//a[@class = "Link--muted"]', el="elements")
-                    test_page_ok = all([float(item.text[0:-1]) > number for item in items_list])
+            while not is_element(page, 'span[class="next_page disabled"]') and (page_1 < 3):
+                items_list = web_driver_wait('//a[@class = "Link--muted"]')
+                test_page_ok = all([float(item.inner_text()[0:-1]) > number for item in items_list.all()])
 
-                    with allure.step(f'Количество звезд на page {page}, соответствует условию > {number}k'):
-                        assert test_page_ok, f"Количество звезд не соответствует условию > {number}k"
-                        selenium.find_element(By.CSS_SELECTOR, 'a.next_page').click()
-                        pause(selenium, timeout=uniform(4, 10))
-
-                except StaleElementReferenceException:
-                    continue
-                page += 1
+                with allure.step(f'Количество звезд на page {page_1}, соответствует условию > {number}k'):
+                    assert test_page_ok, f"Количество звезд не соответствует условию > {number}k"
+                    page.locator('a.next_page').click()
+                    sleep(uniform(4, 10))
+                page_1 += 1
 
     @allure.title('Выбор онлайн-курсов по программированию от Skillbox')
-    def test_course_selection(seif, selenium):
+    def test_course_selection(seif, web_driver_wait, page):
         """
         Кейс №4
         Шаги:
@@ -163,48 +146,46 @@ class TestExample():
         """
         url = 'https://skillbox.ru/code/'
         with allure.step(f'Открываем страницу {url}'):
-            selenium.get(url)
+            page.goto(url, wait_until='domcontentloaded')
 
         with allure.step('Выбераем радио-баттон с названием «Профессия» в разделе «Тип обучения на платформе»'):
-            selenium.find_element(By.CSS_SELECTOR, 'input[value="profession"]+span').click()
+            page.locator('input[value="profession"]+span').click()
 
         with allure.step('В тематике выбераем чекбокс "Android" и "Backend-разработка"'):
-            selenium.find_element(By.XPATH, '//span[span[contains(text(),"Android")]]').click()
-            selenium.find_element(By.XPATH, '//span[span[contains(text(),"Backend-разработка")]]').click()
+            page.locator('//span[span[contains(text(),"Android")]]').click()
+            page.locator('//span[span[contains(text(),"Backend-разработка")]]').click()
 
         with allure.step('Указываем в поле «Длительность» диапазон от 6 до 12 месяцев (через движение мышки)'):
-            butt_end = selenium.find_element(By.CSS_SELECTOR, 'div[aria-valuetext="24"]>button')
-            butt_first = selenium.find_element(By.CSS_SELECTOR, 'div[aria-valuetext="1"]>button')
+            butt_end = page.locator('div[aria-valuetext="24"]>button')
+            butt_first = page.locator('div[aria-valuetext="1"]>button')
 
-            moving_element(selenium, butt_first, [50, 0])
-            moving_element(selenium, butt_end, [-60, 0])
+            moving_element(page, butt_first, [100, 0])
+            moving_element(page, butt_end, [240, 0])
 
         with allure.step('Проверка, что в списке находятся ожидаемые курсы'):
+            count_curses_text = web_driver_wait('div.courses-block__top>h2')
+            butt_curse = web_driver_wait('button.courses-block__load')
 
-            list_courses = selenium.find_elements(By.CSS_SELECTOR, 'a.ui-product-card-main__wrap')
-            second = 6
-            if is_element(By.CSS_SELECTOR, 'button.courses-block__load', selenium):
-                pause(selenium, timeout=1)
-                selenium.find_element(By.CSS_SELECTOR, 'button.courses-block__load').click()
+            while not (butt_curse is None):
+                butt_curse.click()
+                sleep(1)
+                butt_curse = web_driver_wait('button.courses-block__load', timeout=100)
 
-                for time_1 in range(1, second * 2 + 1):
-                    list_courses_2 = selenium.find_elements(By.CSS_SELECTOR, 'a.ui-product-card-main__wrap')
-
-                    if len(list_courses_2) == len(list_courses):
-                        pause(selenium, timeout=.5)
-                    else:
-                        list_courses = list_courses_2
-                        break
-
-                    if time_1 == second * 2:
-                        raise Exception("Время истекло")
+            logging.info('Получаем список курсов')
+            list_courses = page.locator('a.ui-product-card-main__wrap')
+            list_courses_count = list_courses.count()
+            count_curses = int(re.search(r'\.*(\d+)', count_curses_text.inner_text()).group())
+            if list_courses_count != count_curses:
+                raise Exception(
+                    f'Количество найденых курсов "{list_courses_count}" '
+                    f'не соответствует заявленным в строке "{count_curses_text.inner_text()}"')
 
             list_cour = ['разработ', 'android', 'developer']
             res = []
 
-            for item_courses in list_courses:
+            for item_courses in list_courses.all():
                 for item_cour in list_cour:
-                    if item_cour in item_courses.text.lower():
+                    if item_cour in item_courses.inner_text().lower():
                         res_loc = True
                         break
                     res_loc = False
@@ -227,13 +208,10 @@ class TestExample():
         with allure.step(f'Открываем страницу {url}'):
             page.goto(url, wait_until='domcontentloaded')
 
-            # pause(selenium, 2)
-
         with allure.step('Поиск столбца гистограммы'):
             logging.info("Поиск столбца гистограммы")
 
             graf = page.locator('section g.bar.mini:nth-of-type(15)')
-            # graf = selenium.find_element(By.CSS_SELECTOR, 'section g:nth-of-type(15)')
 
         with allure.step('Перемещаем указатель мыши на столбец гистограммы'):
             logging.info("Перемещаем указатель мыши на столбец гистограммы")

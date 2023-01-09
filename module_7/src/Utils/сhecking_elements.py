@@ -1,6 +1,7 @@
 def is_element(page, selector):
-    is_element = page.locator(selector).count() > 0
-    return is_element
+    is_element_1 = page.locator(selector).count() > 0
+    return is_element_1
+
 
 def text_contain(el, text):
     return el.inner_text().upper().find(text.upper()) != -1
