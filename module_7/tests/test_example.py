@@ -225,3 +225,29 @@ class TestExample():
             assert tultype.inner_text() in tultype_text, f"Текст в тултипе не содержит {tultype_text}"
 
         logging.info("Тест завершен успешно")
+
+
+    @allure.title("Поиск в Google Туроператор")
+    def test_serch_google(seif, web_driver_wait, page):
+        """
+               Кейс №6
+               Шаги:
+               1 Откройте страницу https://www.google.com/webhp
+               2 Ввести в поиск Туроператор.
+               3 Нажмите на enter.
+               4 Кликнуть по первой ссылке.
+
+               """
+        object_serch = 'Туроператор'
+        url = 'https://www.google.com/webhp'
+        with allure.step(f'Открыть страницу {url}'):
+            page.goto(url, wait_until='domcontentloaded')
+
+        with allure.step(f'Ввести в поисковую строку {object_serch}'):
+            input_el_google = page.locator('input[class="gLFyf"]')
+            input_el_google.fill(object_serch)
+            page.keyboard.press("Enter")
+
+        with allure.step(f'Кликнуть первую ссылку- результат поиска'):
+            link_first = page.locator('div[class="v7W49e"] > div:first-child div[class="yuRUbf"] > a')
+            link_first.click()
