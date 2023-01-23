@@ -240,6 +240,7 @@ class TestExample():
                """
         object_serch = 'Туроператор'
         url = 'https://www.google.com/webhp'
+        logging.info(f"Запускаем страницу browser, URL {url}")
         with allure.step(f'Открыть страницу {url}'):
             page.goto(url, wait_until='domcontentloaded')
 
@@ -251,3 +252,103 @@ class TestExample():
         with allure.step(f'Кликнуть первую ссылку- результат поиска'):
             link_first = page.locator('div[class="v7W49e"] > div:first-child div[class="yuRUbf"] > a')
             link_first.click()
+
+    @allure.title("Оформление заказа пиццы")
+    def test_order_pizza(seif, web_driver_wait, page):
+        """
+                           Кейс №7
+
+                           Шаги:
+                          1. Открыть страницу http://pizzeria.skillbox.cc
+                          2. Навести курсором мыши на Пиццу "4 в 1"
+                          2.1. Нажать на кнопку "В корзину".
+                          3. Навести курсор на середину картинки последней пиццы справа в слайдере.
+                          3.1.В слайдере "Пиццы" нажать на стрелку "Вправо"
+                          3.2. Нажать на пиццу. Пример: "Пепперони"
+                          3.3. Нажать на кнопку "В корзину"
+                          4. Нажать на иконку "Корзина" в правом верхнем углу сайта.
+                          5. Нажать на кнопку "Перейти к оплате"
+                          6. Нажать на раздел в хедере страницы "Мой аккаунт"
+                          6.1.Нажать кнопку "Зарегистрироваться"
+                          6.2. Заполнить поле "Имя пользователя": key
+                          6.3. Заполнить поле "Адрес почты": key@bk.ru
+                          6.4. Заполнить поле "Пароль": key
+                          6.5. Нажать кнопку "Зарегистрироваться"
+                          7. Нажать на иконку "Корзина" в правом верхнем углу сайта.
+                          7.1. Нажать кнопку "Перейти к оплате"
+                          8. Заполнить поля "Детали заказа":
+                          ИМЯ: "Екатерина"
+                          ФАМИЛИЯ: "Чудова"
+                          Страна/Регион: "Россия"
+                          Адрес: "Ленина 23-2"
+                          Город/Населенный пункт: "Мурманск"
+                          Область: "Мурманская область"
+                          Почтовый индекс: "183032"
+                          Телефон:"12345678911"
+                          Адрес почты: "key@bk.ru" (Заполнен автоматически)
+                          Дата заказа: Выбрать любую дату в будущем.
+                          8.1. Выбрать способ оплаты: "Оплата при доставке"
+                          8.2. Установить галочку в чек- боксе согласия с условиями вебсайта.
+                          8.3. Нажать кнопку "Оформить заказ"
+                          Проверить статус заказа:
+                          9. Нажать на раздел " Мой аккаунт"
+                          9.1. Нажать на раздел в меню "Мой аккаунт" "Заказы"
+                          9.2. Нажать кнопку "Подробнее"
+                           """
+
+        nameuser = 'stepbystep'
+        user_email = 'stepbystep@bk.ru'
+        password_user = 'stepbystep23'
+        url = 'http://pizzeria.skillbox.cc'
+        logging.info(f"Запускаем страницу browser, URL {url}")
+        with allure.step(f'Открыть страницу {url}'):
+             page.goto(url, wait_until='domcontentloaded')
+
+        with allure.step(f'Выбрать пиццу и нажать - В корзину'):
+             object_first = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
+             object_first.hover()
+             object_first.click()
+
+        with allure.step(f'В слайдере "Пиццы" нажать на стрелку - Вправо'):
+             object_next = page.locator('a[class="slick-next"]')
+             object_next.hover()
+             object_next.click()
+
+        with allure.step(f'Выбрать пиццу Пепперони и Нажать на кнопку -В корзину'):
+             object_second = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=417"]')
+             object_second.hover()
+             object_second.click()
+
+        with allure.step(f'Нажать на иконку "Корзина" в правом верхнем углу сайта.'):
+             object_basket = page.locator('a[class="cart-contents wcmenucart-contents"]')
+             object_basket.click()
+
+        with allure.step(f'Нажать на кнопку "Перейти к оплате"'):
+             object_pay = page.locator('a[class="checkout-button button alt wc-forward"]')
+             object_pay.click()
+
+        with allure.step(f'Нажать на раздел в хедере страницы "Мой аккаунт"'):
+             my_account = page.locator('li[id="menu-item-30"] a')
+             my_account.click()
+
+        with allure.step(f'Нажать кнопку "Зарегистрироваться"'):
+             register_page = page.locator('button[class="custom-register-button"]')
+             register_page.click()
+
+        with allure.step(f'Заполнить поле "Имя пользователя" {nameuser}'):
+             input_username = page.locator('input[id="reg_username"]')
+             input_username.fill(nameuser)
+
+        with allure.step(f'Заполнить поле "адрес почты" {user_email}'):
+             input_email = page.locator('input[id="reg_email"]')
+             input_email.fill(user_email)
+
+        with allure.step(f'Заполнить поле "пароль" {password_user}'):
+             input_password = page.locator('input[id="reg_password"]')
+             input_password.fill(password_user)
+
+        with allure.step(f'Нажать кнопку "Зарегистрироваться"'):
+             registerbutton = page.locator('button[value="Зарегистрироваться"]')
+             registerbutton.click()
+
+        pass
