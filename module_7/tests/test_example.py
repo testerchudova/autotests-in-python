@@ -542,8 +542,4 @@ class TestExample():
                     inbasket = page.locator('td.actions > button')
                     inbasket.click()
 
-                #поиск пеперони
-                pizza = page.locator('//tr[.//a[contains(text(), "еппе")]]//input')
-
-
         pass
