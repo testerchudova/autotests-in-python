@@ -304,51 +304,246 @@ class TestExample():
         with allure.step(f'Открыть страницу {url}'):
              page.goto(url, wait_until='domcontentloaded')
 
-        with allure.step(f'Выбрать пиццу и нажать - В корзину'):
+        with allure.step('Выбрать пиццу и нажать - В корзину'):
              object_first = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
              object_first.hover()
              object_first.click()
 
-        with allure.step(f'В слайдере "Пиццы" нажать на стрелку - Вправо'):
+        with allure.step('В слайдере "Пиццы" нажать на стрелку - Вправо'):
              object_next = page.locator('a[class="slick-next"]')
              object_next.hover()
              object_next.click()
 
-        with allure.step(f'Выбрать пиццу Пепперони и Нажать на кнопку -В корзину'):
+        with allure.step('Выбрать пиццу Пепперони и Нажать на кнопку -В корзину'):
              object_second = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=417"]')
              object_second.hover()
              object_second.click()
 
-        with allure.step(f'Нажать на иконку "Корзина" в правом верхнем углу сайта.'):
+        with allure.step('Нажать на иконку "Корзина" в правом верхнем углу сайта.'):
              object_basket = page.locator('a[class="cart-contents wcmenucart-contents"]')
              object_basket.click()
 
-        with allure.step(f'Нажать на кнопку "Перейти к оплате"'):
+        with allure.step('Нажать на кнопку "Перейти к оплате"'):
              object_pay = page.locator('a[class="checkout-button button alt wc-forward"]')
              object_pay.click()
 
-        with allure.step(f'Нажать на раздел в хедере страницы "Мой аккаунт"'):
+        with allure.step('Нажать на раздел в хедере страницы "Мой аккаунт"'):
              my_account = page.locator('li[id="menu-item-30"] a')
              my_account.click()
 
-        with allure.step(f'Нажать кнопку "Зарегистрироваться"'):
-             register_page = page.locator('button[class="custom-register-button"]')
-             register_page.click()
 
-        with allure.step(f'Заполнить поле "Имя пользователя" {nameuser}'):
-             input_username = page.locator('input[id="reg_username"]')
-             input_username.fill(nameuser)
+        with allure.step('Нажать на кнопку войти'):
+             page.locator('div.login-woocommerce').click()
+             page.locator('#username').fill(nameuser)
+             page.locator('#password').fill(password_user)
+             page.locator('button[value="Войти"]').click()
 
-        with allure.step(f'Заполнить поле "адрес почты" {user_email}'):
-             input_email = page.locator('input[id="reg_email"]')
-             input_email.fill(user_email)
 
-        with allure.step(f'Заполнить поле "пароль" {password_user}'):
-             input_password = page.locator('input[id="reg_password"]')
-             input_password.fill(password_user)
+        # with allure.step(f'Нажать кнопку "Зарегистрироваться"'):
+        #      register_page = page.locator('button[class="custom-register-button"]')
+        #      register_page.click()
 
-        with allure.step(f'Нажать кнопку "Зарегистрироваться"'):
-             registerbutton = page.locator('button[value="Зарегистрироваться"]')
-             registerbutton.click()
+        # with allure.step(f'Заполнить поле "Имя пользователя" {nameuser}'):
+        #      input_username = page.locator('input[id="reg_username"]')
+        #      input_username.fill(nameuser)
+
+        # with allure.step(f'Заполнить поле "адрес почты" {user_email}'):
+        #      input_email = page.locator('input[id="reg_email"]')
+        #      input_email.fill(user_email)
+        #
+        # with allure.step(f'Заполнить поле "пароль" {password_user}'):
+        #      input_password = page.locator('input[id="reg_password"]')
+        #      input_password.fill(password_user)
+        #
+        # with allure.step(f'Нажать кнопку "Зарегистрироваться"'):
+        #      registerbutton = page.locator('button[value="Зарегистрироваться"]')
+        #      registerbutton.click()
+
+        with allure.step('Нажать на иконку "Корзина" в правом верхнем углу сайта.'):
+             object_basket = page.locator('a[class="cart-contents wcmenucart-contents"]')
+             object_basket.click()
+
+        with allure.step('Нажать на кнопку "Перейти к оплате"'):
+            object_pay = page.locator('a[class="checkout-button button alt wc-forward"]')
+            object_pay.click()
+
+        with allure.step('Заполнить поля формы заказа.'):
+            first_name = page.locator('#billing_first_name')
+            first_name.fill('Екатерина')
+
+            last_name = page.locator('#billing_last_name')
+            last_name.fill('Чудова')
+
+            billing_address = page.locator('#billing_address_1')
+            billing_address.fill('Ленина 23-2')
+
+            billing_city = page.locator('#billing_city')
+            billing_city.fill('Мурманск')
+
+            billing_state = page.locator('#billing_state')
+            billing_state.fill('Мурманская область')
+
+            billing_postcode = page.locator('#billing_postcode')
+            billing_postcode.fill('183032')
+
+            billing_phone = page.locator('#billing_phone')
+            billing_phone.fill('890529785906')
+
+            order_date_locator = page.locator('#order_date')
+            order_date_locator.click()
+
+            from datetime import datetime, timedelta
+
+            def prefix_zero(n: int):
+                """
+                функция дописывает ноль перед чеслом n, если n<10
+                :param n: целое число
+                :return: строка
+                """
+                n_str = str(n)
+                return "0" + n_str if n < 10 else n_str
+
+            current_date = datetime.today() #текущая  дата
+            delta = timedelta(days=5)
+            order_date = current_date + delta
+
+            day = prefix_zero(order_date.day)
+            month = prefix_zero(order_date.month)
+            year = str(order_date.year)
+
+            page.keyboard.type(month)
+            page.keyboard.type(day)
+            page.keyboard.type(year)
+
+        with allure.step('Выбрать способ оплаты radio-button: "Оплата при доставке"'):
+            page.locator('#payment_method_cod').click()
+
+        with allure.step('Установить галочку в чек- боксе согласия с условиями вебсайта.'):
+            page.locator('#terms').click()
+
+        with allure.step('Нажать кнопку "Оформить заказ"'):
+            page.locator('#place_order').click()
+
+        with allure.step('Нажать на раздел в хедере страницы "Мой аккаунт"'):
+            my_account = page.locator('li[id="menu-item-30"] a')
+            my_account.click()
+
+            orders = page.locator('li[class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders"] a')
+            orders.click()
+
+            orders = page.locator( 'div[class="woocommerce-MyAccount-content"] tbody tr:first-child td:last-child a')
+            orders.click()
+
+            @allure.title("Оформление заказа пиццы")
+            def test_order_pizza(seif, web_driver_wait, page):
+                """
+                                   Кейс №8
+                                   Предусловие: Пользователь должен быть Авторизован.
+                                   Шаги:
+                                  1. Открыть страницу http://pizzeria.skillbox.cc
+                                  2. Навести курсором мыши на Пиццу "4 в 1"
+                                  2.1. Нажать на кнопку "В корзину".
+                                  3. Навести курсор на середину картинки последней пиццы справа в слайдере.
+                                  3.1.В слайдере "Пиццы" нажать на стрелку "Вправо"
+                                  3.2. Нажать на пиццу. Пример: "Пепперони"
+                                  3.3. Нажать на кнопку "В корзину"
+                                  4. Нажать на иконку "Корзина" в правом верхнем углу сайта.
+                                  5. Нажать на кнопку "Перейти к оплате"
+                                  6. Нажать на кнопку "Удалить" и удалить "Пиццу 4 в 1" из корзины.
+                                  6. Выбрать подкатегорию в "Меню" -"Десерты".
+                                  6.1.Нажать подкатегорию "Меню" -"Десерты"
+                                  6.2. Нажать на иконку десерта "Шоколадный шок"
+                                  6.3. Изменить количество десерта на "3"
+                                  6.4. Нажать кнопку "В корзину"
+                                  7. Нажать на иконку "Корзина" в правом верхнем углу сайта.
+                                  7.1. Изменить количество пиццы "Пепперони"с 1 до 5
+                                  7.1. Нажать кнопку "Обновить корзину"
+                                   """
+
+                nameuser = 'stepbystep'
+                user_email = 'stepbystep@bk.ru'
+                password_user = 'stepbystep23'
+                url = 'http://pizzeria.skillbox.cc'
+                logging.info(f"Запускаем страницу browser, URL {url}")
+                with allure.step(f'Открыть страницу {url}'):
+                    page.goto(url, wait_until='domcontentloaded')
+
+                with allure.step('Нажать на раздел в хедере страницы "Мой аккаунт"'):
+                     my_account = page.locator('li[id="menu-item-30"] a')
+                     my_account.click()
+
+                with allure.step('Нажать на кнопку войти'):
+                     page.locator('div.login-woocommerce').click()
+                     page.locator('#username').fill(nameuser)
+                     page.locator('#password').fill(password_user)
+                     page.locator('button[value="Войти"]').click()
+
+                with allure.step('Нажать на раздел в хедере страницы "Главная"'):
+                    main = page.locator('li[id="menu-item-26"] a')
+                    main.click()
+
+                with allure.step('Выбрать пиццу и нажать - В корзину'):
+                    object_first = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
+                    object_first.hover()
+                    object_first.click()
+
+                with allure.step('В слайдере "Пиццы" нажать на стрелку - Вправо'):
+                    object_next = page.locator('a[class="slick-next"]')
+                    object_next.hover()
+                    object_next.click()
+
+                with allure.step('Выбрать пиццу Пепперони и Нажать на кнопку -В корзину'):
+                    object_second = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=417"]')
+                    object_second.hover()
+                    object_second.click()
+
+                with allure.step('Нажать на иконку "Корзина" в правом верхнем углу сайта.'):
+                    object_basket = page.locator('a[class="cart-contents wcmenucart-contents"]')
+                    object_basket.click()
+
+                with allure.step('Нажать на кнопку "Удалить" и удалить "Пиццу 4 в 1" из корзины.'):
+                    object_basket = page.locator('a[data-product_id="425"]')
+                    object_basket.click()
+
+                with allure.step('Выбрать подкатегорию в "Меню" -"Десерты".'):
+                    object_menu = page.locator('li[id="menu-item-389"] > a')
+                    object_menu.hover()
+
+                with allure.step('Выбрать подкатегорию в "Меню" -"Десерты".'):
+                    object_desert = page.locator('li[id="menu-item-391"] > a')
+                    object_desert.hover()
+                    object_desert.click()
+
+                with allure.step('Нажать на иконку десерта "Шоколадный шок".'):
+                    desert_shoc= page.locator('li.post-435 a[class="collection_title"]')
+                    desert_shoc.click()
+
+                with allure.step('Изменить количество десерта на "3"'):
+                    count0 = page.locator('input[name="quantity"]')
+                    count0.click()
+                    page.keyboard.press("Backspace")
+                    page.keyboard.type('3')
+
+                with allure.step('Нажать кнопку "В корзину"'):
+                     inbasket = page.locator('button[value="435"]')
+                     inbasket.click()
+
+                with allure.step('Нажать на иконку "Корзина" в правом верхнем углу сайта.'):
+                    object_basket = page.locator('a[class="cart-contents wcmenucart-contents"]')
+                    object_basket.click()
+
+                with allure.step('Изменить количество пиццы "Пепперони"с 1 до 5'):
+                    pizza_count = page.locator('//tr[.//a[contains(text(), "еппе")]]//input')
+                    pizza_count.click()
+                    page.keyboard.press("Backspace")
+                    page.keyboard.type('5')
+
+                with allure.step('Нажать кнопку "Обновить корзину"'):
+                    inbasket = page.locator('td.actions > button')
+                    inbasket.click()
+
+                #поиск пеперони
+                pizza = page.locator('//tr[.//a[contains(text(), "еппе")]]//input')
+
 
         pass
