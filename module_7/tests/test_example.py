@@ -851,5 +851,3 @@ class TestExample():
             with allure.step('Нажать кнопку "применить купон'):
                 apply_coupon = page.locator('ibutton[name = "apply_coupon"]]')
                 apply_coupon.click()
-
-            pass
