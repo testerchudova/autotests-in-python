@@ -12,3 +12,4 @@ dependencies:
        - allure-pytest
        - flake8
        - pytest-playwright
+       - scapy
