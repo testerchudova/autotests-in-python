@@ -605,6 +605,9 @@ class TestExample():
             showcoupon = page.locator('a[class ="showcoupon"]')
             showcoupon.click()
 
+        # todo Ссылка нажимается раньше, чем ей назначен обработчик click.
+        #  Реализовать цыкл в котором будет происходить клик на ссылке до тех пор пока не отработает обработчик.
+
         with allure.step('Ввести в поле- ввода купона GIVEMEHALYAVA'):
             coupon_code = page.locator('input[id="coupon_code"]')
             coupon_code.fill('GIVEMEHALYAVA')
@@ -612,6 +615,7 @@ class TestExample():
         with allure.step('Нажать кнопку "применить купон'):
             apply_coupon = page.locator('button[name = "apply_coupon"]')
             apply_coupon.click()
+
 
         with allure.step('Убедится, что сумма заказа уменьшилась на 10%'):
             percent = 10
