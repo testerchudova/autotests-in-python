@@ -630,11 +630,10 @@ class TestExample():
             discount_summ = float(discount_summ)
 
             assert total_summ_order*discount == total_summ_order-discount_summ, f"Сумма скидки не равна {percent}%"
-            pass
 
 
-        @allure.title("Применение невалидного промокода при оформлении заказа.")
-        def test_order_wrongcoupon(seif, web_driver_wait, page):
+    @allure.title("Применение невалидного промокода при оформлении заказа.")
+    def test_order_wrongcoupon(seif, web_driver_wait, page):
             """
                                Кейс №10 - Сценарий №2
                                Предусловие: Пользователь должен быть Авторизован.
@@ -653,7 +652,6 @@ class TestExample():
                                """
 
             nameuser = 'stepbystep'
-            user_email = 'stepbystep@bk.ru'
             password_user = 'stepbystep23'
             url = 'http://pizzeria.skillbox.cc'
             logging.info(f"Запускаем страницу browser, URL {url}")
@@ -697,16 +695,30 @@ class TestExample():
                 showcoupon = page.locator(' a[class ="showcoupon"]')
                 showcoupon.click()
 
-            with allure.step('Ввести в поле- ввода купона GIVEMEHALYAVA'):
+            with allure.step('Ввести в поле- ввода купона невалидный купон'):
                 coupon_code = page.locator('input[id = "coupon_code"]')
                 coupon_code.fill('DC120')
 
             with allure.step('Нажать кнопку "применить купон'):
-                apply_coupon = page.locator('button[name = "apply_coupon"]]')
+                apply_coupon = page.locator('button[name = "apply_coupon"]')
                 apply_coupon.click()
 
-        @allure.title("Перехватить промокод GIVEMEHALYAVA.")
-        def test_order_block_coupon(seif, web_driver_wait, page):
+
+            with allure.step('Проверяем, что купон не применился'):
+
+                total_summ_order = page.locator('tr.cart-subtotal>td>span').inner_text()[0:-1].replace(',', '.')
+                total_summ_order = float(total_summ_order)
+
+                # discount_order = page.locator('tr.cart-discount>td>span').inner_text()[0:-1].replace(',', '.')
+                # discount_order = float(discount_order)
+
+                discount_summ = page.locator('tr.order-total>td span.amount').inner_text()[0:-1].replace(',', '.')
+                discount_summ = float(discount_summ)
+
+                assert discount_summ == total_summ_order, "Пользователь получил скидку в результате применения невалидного купона"
+
+    @allure.title("Перехватить промокод GIVEMEHALYAVA.")
+    def test_order_block_coupon(seif, web_driver_wait, page):
             """
                     Кейс №11 - Сценарий №3
                     Предусловие: Пользователь должен быть Авторизован.
