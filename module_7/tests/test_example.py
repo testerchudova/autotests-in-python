@@ -602,11 +602,11 @@ class TestExample():
             my_order.click()
 
         with allure.step('Нажать на поле- ссылку для открытия поля- ввода купона"'):
-            showcoupon = page.locator('a[class ="showcoupon"]')
+            showcoupon = web_driver_wait('a[class ="showcoupon"]')
             showcoupon.click()
 
         with allure.step('Ввести в поле- ввода купона GIVEMEHALYAVA'):
-            coupon_code = page.locator('input[id="coupon_code"]')
+            coupon_code = web_driver_wait('input[id="coupon_code"]')
             coupon_code.fill('GIVEMEHALYAVA')
 
         with allure.step('Нажать кнопку "применить купон'):
@@ -981,6 +981,7 @@ class TestExample():
                     9. До заполнить на странице "Оформление заказа" обязательные поля не заполненные по умолчанию: дата заказа.
                     10.Установить галочку в чек- боксе согласия с условиями вебсайта.
                     11. Нажать кнопку "Оформить заказ"
+                    12. Убедиться, что применилась скидка 15%
 
         """
 
@@ -1045,10 +1046,10 @@ class TestExample():
         with allure.step('Нажать кнопку "Оформить заказ"'):
                 page.locator('#place_order').click()
 
-        @allure.title("Проверить применение скидки 15% по №телефона (бонусная программа)")
-        def test_check_bonus(seif, web_driver_wait, page):
+        @allure.title('Проверить валидацию полей раздела "Бонусная программа"')
+        def test_checkstring_bonus(seif, web_driver_wait, page):
             """
-                                        Кейс №14- Сценарий №6
+                                        Кейс №15- Сценарий №6
                                 Предусловие: Пользователь должен быть Авторизован и зарегистрирован в бонусной программе.
                                 Шаги:
                                 1. Открыть страницу http://pizzeria.skillbox.cc
@@ -1087,6 +1088,7 @@ class TestExample():
             with allure.step('Нажать кнопку "Оформить карту"'):
                 page.locator('button[name="bonus"]').click()
 
-        stringuser = ['',]
+        string_user = ['',' Катя ','`~@#$%^&*()_+|-=\{}[]:','ТАНЯ','<script>alert(‘XSS’)</script>','12345667889','длинная строка']
+        string_phon = ['1234567891','12345678911','123456789112',' 12345678911 ','', '<script>alert(‘XSS’)</script>', 'длинная строка','1',"tr'"]
 
         pass
