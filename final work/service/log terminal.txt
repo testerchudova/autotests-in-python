@@ -1,0 +1,754 @@
+Microsoft Windows [Version 10.0.19044.2364]
+(c) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python>CD  module_6
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm selenoid start --vnc
+> Using Docker
+- Your Docker API version is 1.41
+> Downloading Selenoid...
+- Fetching tags for image aerokube/selenoid
+registry.ping url=https://index.docker.io/v2/
+registry.tags url=https://index.docker.io/v2/aerokube/selenoid/tags/list repository=aerokube/selenoid
+- Pulling image aerokube/selenoid:1.10.9
+> Configuring Selenoid...
+> Processing browser "chrome"...
+- Fetching tags for image selenoid/chrome
+registry.tags url=https://index.docker.io/v2/selenoid/chrome/tags/list repository=selenoid/chrome
+- Requested to download VNC images but this feature is now deprecated as all images contain VNC.
+- Pulling image selenoid/chrome:108.0
+- Pulling image selenoid/chrome:107.0
+x Failed to pull image "selenoid/chrome:107.0": Error response from daemon: Get "https://registry-1.docker.io/v2/": dialing registry-1.docker.io:443 no proxy configured: resolving host
+ registry-1.docker.io: lookup registry-1.docker.io: no such host
+> Processing browser "opera"...
+- Fetching tags for image selenoid/opera
+registry.tags url=https://index.docker.io/v2/selenoid/opera/tags/list repository=selenoid/opera
+x Failed to fetch tags for image "selenoid/opera": Get "https://index.docker.io/v2/selenoid/opera/tags/list": dial tcp: lookup index.docker.io: no such host
+- Requested to download VNC images but this feature is now deprecated as all images contain VNC.
+> Processing browser "firefox"...
+- Fetching tags for image selenoid/firefox
+registry.tags url=https://index.docker.io/v2/selenoid/firefox/tags/list repository=selenoid/firefox
+x Failed to fetch tags for image "selenoid/firefox": Get "https://index.docker.io/v2/selenoid/firefox/tags/list": dial tcp: lookup index.docker.io: no such host
+- Requested to download VNC images but this feature is now deprecated as all images contain VNC.
+> Pulling video recorder image...
+- Pulling image selenoid/video-recorder:latest-release
+x Failed to pull image "selenoid/video-recorder:latest-release": Error response from daemon: Get "https://registry-1.docker.io/v2/": dialing registry-1.docker.io:443 no proxy configure
+d: resolving host registry-1.docker.io: lookup registry-1.docker.io: no such host
+> Configuration saved to C:\Users\Denic\.aerokube\selenoid\browsers.json
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm -conf browsers.json
+Error: unknown command "browsers.json" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf browsers.json
+Error: unknown command "browsers.json" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf
+Error: unknown shorthand flag: 'c' in -conf
+Usage:
+  cm [flags]
+  cm [command]
+
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  selenoid    Download, configure and run Selenoid
+  selenoid-ui Download, configure and run Selenoid UI
+  version     Show version
+
+Flags:
+  -h, --help   help for cm
+
+Use "cm [command] --help" for more information about a command.
+
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf exe -conf
+Error: unknown command "exe" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf exe -conf
+Error: unknown command "exe" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf exe -conf
+Error: unknown command "exe" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf exe -conf /path/to/browsers.json
+Error: unknown command "exe" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf /path/to/browsers.json
+Error: unknown command "/path/to/browsers.json" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf path/to/browsers.json
+Error: unknown command "path/to/browsers.json" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf browsers.json
+Error: unknown command "browsers.json" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>./cm.exe -conf browsers.json
+"." не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf browsers.json
+Error: unknown command "browsers.json" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf ./browsers.json
+Error: unknown command "./browsers.json" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm1.exe -conf browsers.json
+2022/12/25 23:36:52 [-] [INIT] [Loading configuration files...]
+2022/12/25 23:36:52 [-] [INIT] [Loaded configuration from browsers.json]
+2022/12/25 23:36:52 [-] [INIT] [Video Dir: D:\Ekaterina\autotests-in-python\module_6\video]
+2022/12/25 23:36:52 [-] [INIT] [Your Docker API version is 1.41]
+2022/12/25 23:36:52 [-] [INIT] [Timezone: Local]
+2022/12/25 23:36:52 [-] [INIT] [Listening on :4444]
+2022/12/25 23:36:52 [-] [INIT] [Failed to start: listen tcp :4444: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid -conf ./browsers.json
+Error: unknown shorthand flag: 'c' in -conf
+Usage:
+  cm selenoid [flags]
+  cm selenoid [command]
+
+Available Commands:
+  args        Shows Selenoid available args
+  cleanup     Remove Selenoid traces
+  configure   Create Selenoid configuration file and download dependencies
+  download    Download Selenoid latest or specified release
+  start       Start Selenoid
+  status      Shows Selenoid configuration status
+  stop        Stop Selenoid
+  update      Update Selenoid (download latest Selenoid, configure and start)
+
+Flags:
+  -h, --help   help for selenoid
+
+Use "cm selenoid [command] --help" for more information about a command.
+
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid -conf browsers.json
+Error: unknown shorthand flag: 'c' in -conf
+Usage:
+  cm selenoid [flags]
+  cm selenoid [command]
+
+Available Commands:
+  args        Shows Selenoid available args
+  cleanup     Remove Selenoid traces
+  configure   Create Selenoid configuration file and download dependencies
+  download    Download Selenoid latest or specified release
+  start       Start Selenoid
+  status      Shows Selenoid configuration status
+  stop        Stop Selenoid
+  update      Update Selenoid (download latest Selenoid, configure and start)
+
+Flags:
+  -h, --help   help for selenoid
+
+Use "cm selenoid [command] --help" for more information about a command.
+
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid -conf browsers.json -disable-docker
+Error: unknown shorthand flag: 'c' in -conf
+Usage:
+  cm selenoid [flags]
+  cm selenoid [command]
+
+Available Commands:
+  args        Shows Selenoid available args
+  cleanup     Remove Selenoid traces
+  configure   Create Selenoid configuration file and download dependencies
+  download    Download Selenoid latest or specified release
+  start       Start Selenoid
+  status      Shows Selenoid configuration status
+  stop        Stop Selenoid
+  update      Update Selenoid (download latest Selenoid, configure and start)
+
+Flags:
+  -h, --help   help for selenoid
+
+Use "cm selenoid [command] --help" for more information about a command.
+
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe  -conf browsers.json -disable-docker
+Error: unknown command "browsers.json" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm1.exe -conf browsers.json
+2022/12/26 05:46:59 [-] [INIT] [Loading configuration files...]
+2022/12/26 05:46:59 [-] [INIT] [Loaded configuration from browsers.json]
+2022/12/26 05:46:59 [-] [INIT] [Video Dir: D:\Ekaterina\autotests-in-python\module_6\video]
+2022/12/26 05:46:59 [-] [INIT] [Your Docker API version is 1.41]
+2022/12/26 05:46:59 [-] [INIT] [Timezone: Local]
+2022/12/26 05:46:59 [-] [INIT] [Listening on :4444]
+2022/12/26 05:46:59 [-] [INIT] [Failed to start: listen tcp :4444: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm1.exe selenoid stop
+2022/12/26 05:47:33 [-] [INIT] [Loading configuration files...]
+2022/12/26 05:47:33 [-] [INIT] [cm1.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm1.exe stop
+2022/12/26 05:47:43 [-] [INIT] [Loading configuration files...]
+2022/12/26 05:47:43 [-] [INIT] [cm1.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid-ui start
+> Using Docker
+- Your Docker API version is 1.41
+> Downloading Selenoid UI...
+- Fetching tags for image aerokube/selenoid-ui
+registry.ping url=https://index.docker.io/v2/
+registry.tags url=https://index.docker.io/v2/aerokube/selenoid-ui/tags/list repository=aerokube/selenoid-ui
+- Pulling image aerokube/selenoid-ui:dev-latest
+> Starting Selenoid UI...
+> Successfully started Selenoid UI
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid-ui start
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid UI is already downloaded
+> Selenoid UI is already running
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid configure
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --browsers-json /path/to/browsers.json
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Selenoid is already running
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --browsers-json /path/to/browsers.json
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm selenoid start --browsers 'chrome:108.0'
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --browsers-json /path/to/browsers.json
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --browsers-json /path/to/browsers.json
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm selenoid start --browsers 'chrome:85.0'
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Selenoid is already running
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm selenoid start --browsers 'chrome:85.0'
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --browsers-json /path/to/browsers.json
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe
+Usage:
+  cm [flags]
+  cm [command]
+
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  selenoid    Download, configure and run Selenoid
+  selenoid-ui Download, configure and run Selenoid UI
+  version     Show version
+
+Flags:
+  -h, --help   help for cm
+
+Use "cm [command] --help" for more information about a command.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe
+Usage:
+  cm [flags]
+  cm [command]
+
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  selenoid    Download, configure and run Selenoid
+  selenoid-ui Download, configure and run Selenoid UI
+  version     Show version
+
+Flags:
+  -h, --help   help for cm
+
+Use "cm [command] --help" for more information about a command.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe
+Usage:
+  cm [flags]
+  cm [command]
+
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  selenoid    Download, configure and run Selenoid
+  selenoid-ui Download, configure and run Selenoid UI
+  version     Show version
+
+Flags:
+  -h, --help   help for cm
+
+Use "cm [command] --help" for more information about a command.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe
+Usage:
+  cm [flags]
+  cm [command]
+
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  selenoid    Download, configure and run Selenoid
+  selenoid-ui Download, configure and run Selenoid UI
+  version     Show version
+
+Flags:
+  -h, --help   help for cm
+
+Use "cm [command] --help" for more information about a command.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe
+Usage:
+  cm [flags]
+  cm [command]
+
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  selenoid    Download, configure and run Selenoid
+  selenoid-ui Download, configure and run Selenoid UI
+  version     Show version
+
+Flags:
+  -h, --help   help for cm
+
+Use "cm [command] --help" for more information about a command.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe  selenoid start --browsers 'firefox:>51.0' --last-versions 3
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe  selenoid start --browsers 'chrome:>51.0' --last-versions 3
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --browsers-json /path/to/browsers.json
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --browsers-json /path/to/browsers.json
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --browsers-json /path/to/browsers.json
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+2022/12/26 10:40:52 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:40:52 [-] [INIT] [cm.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --browsers-json /path/to/browsers.json
+2022/12/26 10:41:43 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:41:43 [-] [INIT] [cm.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf browsers.json
+2022/12/26 10:42:18 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:42:18 [-] [INIT] [Loaded configuration from browsers.json]
+2022/12/26 10:42:18 [-] [INIT] [Video Dir: D:\Ekaterina\autotests-in-python\module_6\video]
+2022/12/26 10:42:18 [-] [INIT] [Your Docker API version is 1.41]
+2022/12/26 10:42:18 [-] [INIT] [Timezone: Local]
+2022/12/26 10:42:18 [-] [INIT] [Listening on :4444]
+2022/12/26 10:42:18 [-] [INIT] [Failed to start: listen tcp :4444: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+2022/12/26 10:44:22 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:44:22 [-] [INIT] [cm.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe stop
+2022/12/26 10:44:33 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:44:33 [-] [INIT] [cm.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm selenoid start --vnc
+2022/12/26 10:45:30 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:45:30 [-] [INIT] [cm: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --vnc
+2022/12/26 10:45:43 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:45:43 [-] [INIT] [cm.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe  start --vnc
+2022/12/26 10:45:50 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:45:50 [-] [INIT] [cm.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>./cm.exe start --vnc
+"." не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe start --vnc
+2022/12/26 10:46:24 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:46:24 [-] [INIT] [cm.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe stop
+2022/12/26 10:48:52 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:48:52 [-] [INIT] [cm.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+2022/12/26 10:49:01 [-] [INIT] [Loading configuration files...]
+2022/12/26 10:49:01 [-] [INIT] [cm.exe: browsers config: read error: open config/browsers.json: The system cannot find the path specified.]
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid
+Usage:
+  cm selenoid [flags]
+  cm selenoid [command]
+
+Available Commands:
+  args        Shows Selenoid available args
+  cleanup     Remove Selenoid traces
+  configure   Create Selenoid configuration file and download dependencies
+  download    Download Selenoid latest or specified release
+  start       Start Selenoid
+  status      Shows Selenoid configuration status
+  stop        Stop Selenoid
+  update      Update Selenoid (download latest Selenoid, configure and start)
+
+Flags:
+  -h, --help   help for selenoid
+
+Use "cm selenoid [command] --help" for more information about a command.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm selenoid start --vnc
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>CD ..
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python>git push
+Everything up-to-date
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python>CD module_6
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid stop
+> Using Docker
+- Your Docker API version is 1.41
+> Stopping Selenoid...
+> Successfully stopped Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe -conf browsers.json
+Error: unknown command "browsers.json" for "cm"
+Run 'cm --help' for usage.
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>cm.exe selenoid start --browsers-json /path/to/browsers.json
+> Using Docker
+- Your Docker API version is 1.41
+> Selenoid is already downloaded
+> Selenoid is already configured
+> Starting Selenoid...
+> Successfully started Selenoid
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>docker pull selenoid/vnc_chrome:86.0
+86.0: Pulling from selenoid/vnc_chrome
+7595c8c21622: Pulling fs layer
+d13af8ca898f: Pulling fs layer
+70799171ddba: Pulling fs layer
+b6c12202c5ef: Pulling fs layer
+f379101a4bec: Pulling fs layer
+0737f1313e86: Pull complete
+0a73680ce893: Pull complete
+5671c717bacd: Pull complete
+a28729393224: Pull complete
+4dfbc92ae15e: Pull complete
+ba7dfb858f4e: Pull complete
+c0d67d33151f: Pull complete
+a9c51f8ff3e6: Pull complete
+eb78b135fafc: Pull complete
+fe3bff0c25ab: Pull complete
+72c806d50fdc: Pull complete
+Digest: sha256:2ce176b9d950ccf240708ee9c7dbf7cf297d0cfec9bef0b24e54aeeaec48b9be
+Status: Downloaded newer image for selenoid/vnc_chrome:86.0
+docker.io/selenoid/vnc_chrome:86.0
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>docker pull selenoid/vnc_chrome:108.0
+108.0: Pulling from selenoid/vnc_chrome
+d19f32bd9e41: Pulling fs layer
+1c1198b7f899: Pulling fs layer
+10d9f5627df6: Pull complete
+58e4d9631bb6: Pull complete
+27904742a1ee: Pull complete
+609040a14272: Pull complete
+cc2e5657153e: Pull complete
+17d434b7cc35: Pull complete
+61a67a680715: Pull complete
+93e58b06df5e: Pull complete
+754fe836733d: Pull complete
+d2f74c2982ca: Pull complete
+d68ffeb5f637: Pull complete
+Digest: sha256:e773ec23ce677b0eb167ea55186616b55d65b9b654b3fc1383cb28bdd30b9446
+Status: Downloaded newer image for selenoid/vnc_chrome:108.0
+docker.io/selenoid/vnc_chrome:108.0
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>docker pull selenoid/chrome:108.0
+108.0: Pulling from selenoid/chrome
+Digest: sha256:e773ec23ce677b0eb167ea55186616b55d65b9b654b3fc1383cb28bdd30b9446
+Status: Downloaded newer image for selenoid/chrome:108.0
+docker.io/selenoid/chrome:108.0
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>docker pull selenoid/chrome_108.0
+Using default tag: latest
+Error response from daemon: pull access denied for selenoid/chrome_108.0, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>docker pull selenoid/chrome:latest
+latest: Pulling from selenoid/chrome
+Digest: sha256:e773ec23ce677b0eb167ea55186616b55d65b9b654b3fc1383cb28bdd30b9446
+Status: Downloaded newer image for selenoid/chrome:latest
+docker.io/selenoid/chrome:latest
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aerokube/cm:1.0.0 selenoid \
+Unable to find image 'aerokube/cm:1.0.0' locally
+1.0.0: Pulling from aerokube/cm
+627beaf3eaaf: Pull complete
+cd6f1b960a7c: Pull complete
+8e56002edf83: Pull complete
+Digest: sha256:36fa4551d3752ee9dd7ac8ab7dcd35f05fec605cf3937fcd0bf44c64099333b0
+Status: Downloaded newer image for aerokube/cm:1.0.0
+2022/12/27 16:31:39 registry.ping url=https://registry.hub.docker.com/v2/
+2022/12/27 16:31:41 Processing browser "firefox"...
+2022/12/27 16:31:41 Fetching tags for image "selenoid/firefox"...
+2022/12/27 16:31:41 registry.tags url=https://registry.hub.docker.com/v2/selenoid/firefox/tags/list repository=selenoid/firefox
+2022/12/27 16:31:42 Processing browser "chrome"...
+2022/12/27 16:31:42 Fetching tags for image "selenoid/chrome"...
+2022/12/27 16:31:42 registry.tags url=https://registry.hub.docker.com/v2/selenoid/chrome/tags/list repository=selenoid/chrome
+2022/12/27 16:31:43 Processing browser "opera"...
+2022/12/27 16:31:43 Fetching tags for image "selenoid/opera"...
+2022/12/27 16:31:43 registry.tags url=https://registry.hub.docker.com/v2/selenoid/opera/tags/list repository=selenoid/opera
+{
+    "chrome": {
+        "default": "108.0",
+        "versions": {
+            "104.0": {
+                "image": "selenoid/chrome:104.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "105.0": {
+                "image": "selenoid/chrome:105.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "106.0": {
+                "image": "selenoid/chrome:106.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "107.0": {
+                "image": "selenoid/chrome:107.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "108.0": {
+                "image": "selenoid/chrome:108.0",
+                "port": "4444",
+                "path": "/"
+            }
+        }
+    },
+    "firefox": {
+        "default": "108.0",
+        "versions": {
+            "104.0": {
+                "image": "selenoid/firefox:104.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            },
+            "105.0": {
+                "image": "selenoid/firefox:105.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            },
+            "106.0": {
+                "image": "selenoid/firefox:106.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            },
+            "107.0": {
+                "image": "selenoid/firefox:107.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            },
+            "108.0": {
+                "image": "selenoid/firefox:108.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            }
+        }
+    },
+    "opera": {
+        "default": "94.0",
+        "versions": {
+            "90.0": {
+                "image": "selenoid/opera:90.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "91.0": {
+                "image": "selenoid/opera:91.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "92.0": {
+                "image": "selenoid/opera:92.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "93.0": {
+                "image": "selenoid/opera:93.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "94.0": {
+                "image": "selenoid/opera:94.0",
+                "port": "4444",
+                "path": "/"
+            }
+        }
+    }
+}
+
+(autotests_in_python) D:\Ekaterina\autotests-in-python\module_6>docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aerokube/cm:1.0.0 selenoid

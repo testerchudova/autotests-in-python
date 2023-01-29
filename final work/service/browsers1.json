@@ -1,0 +1,92 @@
+{
+    "chrome": {
+        "default": "108.0",
+        "versions": {
+            "104.0": {
+                "image": "selenoid/chrome:104.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "105.0": {
+                "image": "selenoid/chrome:105.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "106.0": {
+                "image": "selenoid/chrome:106.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "107.0": {
+                "image": "selenoid/chrome:107.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "108.0": {
+                "image": "selenoid/chrome:108.0",
+                "port": "4444",
+                "path": "/"
+            }
+        }
+    },
+    "firefox": {
+        "default": "108.0",
+        "versions": {
+            "104.0": {
+                "image": "selenoid/firefox:104.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            },
+            "105.0": {
+                "image": "selenoid/firefox:105.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            },
+            "106.0": {
+                "image": "selenoid/firefox:106.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            },
+            "107.0": {
+                "image": "selenoid/firefox:107.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            },
+            "108.0": {
+                "image": "selenoid/firefox:108.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            }
+        }
+    },
+    "opera": {
+        "default": "94.0",
+        "versions": {
+            "90.0": {
+                "image": "selenoid/opera:90.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "91.0": {
+                "image": "selenoid/opera:91.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "92.0": {
+                "image": "selenoid/opera:92.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "93.0": {
+                "image": "selenoid/opera:93.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "94.0": {
+                "image": "selenoid/opera:94.0",
+                "port": "4444",
+                "path": "/"
+            }
+        }
+    }
+}

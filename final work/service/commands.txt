@@ -1,0 +1,4 @@
+selenoid -conf browsers.json - запуск селенойда. В строке команды selenoid это название файла selenoid.exe
+docker pull selenoid/vnc_chrome:108.0 - Загрузка нового image для Docker
+https://aerokube.com/selenoid/latest/#_custom_session_timeout_sessiontimeout - ссылка на описание параметров Capabilities
+allure serve my_allure_results - запуск серевера allure для просмотра отчета по тестированию.
