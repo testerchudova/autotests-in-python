@@ -2,11 +2,39 @@ from time import sleep
 import re
 import allure
 from random import uniform
+
+import pytest
+
 from module_7.src.Utils.сhecking_elements import *  # noqa
 from module_7.src.actions.actions import *  # noqa
 
 
 class TestExample():
+
+    @pytest.fixture
+    def goto_to(page):
+        def callback(url='http://pizzeria.skillbox.cc'):
+            logging.info(f"Запускаем страницу browser, URL {url}")
+            with allure.step(f'Открыть страницу {url}'):
+                page.goto(url, wait_until='domcontentloaded')
+
+        return callback
+
+    @pytest.fixture
+    def authorization(page):
+        def callback(nameuser='stepbystep', password_user='stepbystep23'):
+            with allure.step('Нажать на раздел в хедере страницы "Мой аккаунт"'):
+                page.locator('li[id="menu-item-30"] a').click()
+
+            with allure.step('Нажать на ссылку войти в хедере'):
+                page.locator('div.login-woocommerce').click()
+
+            with allure.step('Заполнить поля учетными данными пользователя'):
+                page.locator('#username').fill(nameuser)
+                page.locator('#password').fill(password_user)
+
+            with allure.step('Нажать на кнопку войти'):
+                page.locator('button[value="Войти"]').click()
 
     @allure.title('Поиск задач на github по заголовкам')
     def test_find_title_bug(seif, web_driver_wait, page):
@@ -734,7 +762,6 @@ class TestExample():
             """
 
             nameuser = 'stepbystep'
-            user_email = 'stepbystep@bk.ru'
             password_user = 'stepbystep23'
             url = 'http://pizzeria.skillbox.cc'
             logging.info(f"Запускаем страницу browser, URL {url}")
@@ -745,10 +772,14 @@ class TestExample():
                 my_account = page.locator('li[id="menu-item-30"] a')
                 my_account.click()
 
-            with allure.step('Нажать на кнопку войти'):
+            with allure.step('Нажать на ссылку войти в хедере'):
                 page.locator('div.login-woocommerce').click()
+
+            with allure.step('Заполнить поля учетными данными пользователя'):
                 page.locator('#username').fill(nameuser)
                 page.locator('#password').fill(password_user)
+
+            with allure.step('Нажать на кнопку войти'):
                 page.locator('button[value="Войти"]').click()
 
             with allure.step('Нажать на раздел в хедере страницы "Главная"'):
@@ -787,7 +818,8 @@ class TestExample():
                   apply_coupon.click()
 
     @allure.title("Применение промокода ПОВТОРНО при оформлении заказа.")
-    def test_order_pizza(seif, web_driver_wait, page):
+    def test_order_pizza(seif, web_driver_wait, page, goto_to, authorization):
+        #todo  Кейс №12 - Сценарий №4
         """
                             Кейс №12 - Сценарий №4
                           Предусловие: Пользователь должен быть Авторизован.
@@ -814,25 +846,9 @@ class TestExample():
                     16.Установить галочку в чек- боксе согласия с условиями вебсайта.
                     17. Нажать кнопку "Оформить заказ"
         """
+        goto_to()
+        authorization()
 
-        nameuser = 'stepbystep'
-        user_email = 'stepbystep@bk.ru'
-        password_user = 'stepbystep23'
-        url = 'http://pizzeria.skillbox.cc'
-        logging.info(f"Запускаем страницу browser, URL {url}")
-
-        with allure.step(f'Открыть страницу {url}'):
-            page.goto(url, wait_until='domcontentloaded')
-
-        with allure.step('Нажать на раздел в хедере страницы "Мой аккаунт"'):
-            my_account = page.locator('li[id="menu-item-30"] a')
-            my_account.click()
-
-        with allure.step('Нажать на кнопку войти'):
-            page.locator('div.login-woocommerce').click()
-            page.locator('#username').fill(nameuser)
-            page.locator('#password').fill(password_user)
-            page.locator('button[value="Войти"]').click()
 
         with allure.step('Нажать на раздел в хедере страницы "Главная"'):
             main = page.locator('li[id="menu-item-26"] a')
@@ -856,7 +872,7 @@ class TestExample():
             coupon_code.fill('GIVEMEHALYAVA')
 
         with allure.step('Нажать кнопку "применить купон'):
-            apply_coupon = page.locator('button[name = "apply_coupon"]]')
+            apply_coupon = page.locator('button[name = "apply_coupon"]')
             apply_coupon.click()
 
     def prefix_zero(n: int):
@@ -1104,7 +1120,11 @@ class TestExample():
             with allure.step('Нажать кнопку "Оформить карту"'):
                 page.locator('button[name="bonus"]').click()
 
-        string_user = ['',' Катя ','`~@#$%^&*()_+|-=\{}[]:','ТАНЯ','<script>alert(‘XSS’)</script>','12345667889','длинная строка']
-        string_phon = ['1234567891','12345678911','123456789112',' 12345678911 ','', '<script>alert(‘XSS’)</script>', 'длинная строка','1',"tr'"]
+        phone = generation_random_digits(10)
+        string_user = ['', ' Катя ', '`~@#$%^&*()_+|-=\{}[]:', 'ТАНЯ', '<script>alert(‘XSS’)</script>', phone,
+                       generation_random_string(255)]
+
+        string_phon = [generation_random_digits(10), generation_random_digits(11), generation_random_digits(12), ' '+generation_random_digits(11)+' ', '',
+                       '<script>alert(‘XSS’)</script>', generation_random_digits(255), '1', "tr'"]
 
         pass
