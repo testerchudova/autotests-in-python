@@ -74,3 +74,14 @@ def text_contain_input_value(el, text):
     return el.input_value().upper().find(text.upper()) != -1
 
 
+
+def prefix_zero(n: int):
+    """
+    функция дописывает ноль перед чеслом n, если n<10
+    :param n: целое число
+    :return: строка
+    """
+    n_str = str(n)
+    return "0" + n_str if n < 10 else n_str
+
+
