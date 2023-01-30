@@ -63,3 +63,11 @@ class Actions:
                 apply_coupon
 
         return callback
+
+    @pytest.fixture()
+    def point_and_click(self, page):
+        def callback(locator: str):
+            object = page.locator(locator)
+            object.hover()
+            object.click()
+        return callback
