@@ -2,14 +2,14 @@ import logging
 from time import sleep
 from datetime import datetime, timedelta
 import allure
+from pathlib import Path
 from random import uniform
-
 import pytest
-
 from final_work.src.Utils.сhecking_elements import *  # noqa
 from final_work.src.actions.actions import *  # noqa
 from final_work.src.fixtures import Actions
 
+current_path = Path(__file__)
 
 class TestExample(Actions):
 
@@ -53,7 +53,13 @@ class TestExample(Actions):
                 '.user-name').inner_text().upper(), 'Пользователь не прошел регистрацию'
 
     @allure.title("Оформление заказа пиццы")
-    def test_order_pizza(seif, web_driver_wait, page, goto_to, authorization, click_my_account):        
+    def test_order_pizza(seif,
+                         web_driver_wait,
+                         page,
+                         goto_to,
+                         authorization,
+                         click_my_account,
+                         point_and_click):
         """
                Кейс №2
                Шаги:
@@ -96,19 +102,13 @@ class TestExample(Actions):
         goto_to()
 
         with allure.step('Выбрать пиццу и нажать - В корзину'):
-            object_first = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
-            object_first.hover()
-            object_first.click()
+            point_and_click('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
 
         with allure.step('В слайдере "Пиццы" нажать на стрелку - Вправо'):
-            object_next = page.locator('a[class="slick-next"]')
-            object_next.hover()
-            object_next.click()
+            point_and_click('a[class="slick-next"]')
 
         with allure.step('Выбрать пиццу Пепперони и Нажать на кнопку -В корзину'):
-            object_second = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=417"]')
-            object_second.hover()
-            object_second.click()
+            point_and_click('li[aria-hidden="false"] a[href="?add-to-cart=417"]')
 
         with allure.step('Нажать на иконку "Корзина" в правом верхнем углу сайта.'):
             page.locator('a[class="cart-contents wcmenucart-contents"]').click()
@@ -180,8 +180,14 @@ class TestExample(Actions):
             assert is_element(page, '.order-date'), "При нажатии кнопки действие не произошло"
 
     @allure.title("Редактирование заказа")
-    def test_order_edit(seif, web_driver_wait, page, goto_to, authorization, click_on_main, click_my_account):
-
+    def test_order_edit(seif,
+                        web_driver_wait,
+                        page,
+                        goto_to,
+                        authorization,
+                        click_on_main,
+                        click_my_account,
+                        point_and_click):
         """
                 Кейс №3
                 Предусловие: Пользователь должен быть Авторизован.
@@ -212,19 +218,13 @@ class TestExample(Actions):
         click_on_main()
 
         with allure.step('Выбрать пиццу и нажать - В корзину'):
-            object_first = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
-            object_first.hover()
-            object_first.click()
+            point_and_click('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
 
         with allure.step('В слайдере "Пиццы" нажать на стрелку - Вправо'):
-            object_next = page.locator('a[class="slick-next"]')
-            object_next.hover()
-            object_next.click()
+            point_and_click('a[class="slick-next"]')
 
         with allure.step('Выбрать пиццу Пепперони и Нажать на кнопку -В корзину'):
-            object_second = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=417"]')
-            object_second.hover()
-            object_second.click()
+            point_and_click('li[aria-hidden="false"] a[href="?add-to-cart=417"]')
 
         with allure.step('Нажать на иконку "Корзина" в правом верхнем углу сайта.'):
             page.locator('a[class="cart-contents wcmenucart-contents"]').click()
@@ -236,9 +236,7 @@ class TestExample(Actions):
             page.locator('li[id="menu-item-389"] > a').hover()
 
         with allure.step('Выбрать подкатегорию в "Меню" -"Десерты".'):
-            object_desert = page.locator('li[id="menu-item-391"] > a')
-            object_desert.hover()
-            object_desert.click()
+            point_and_click('li[id="menu-item-391"] > a')
 
         with allure.step('Нажать на иконку десерта "Шоколадный шок".'):
             page.locator('li.post-435 a[class="collection_title"]').click()
@@ -263,10 +261,16 @@ class TestExample(Actions):
             page.locator('td.actions > button').click()
 
     @allure.title("Применение промокода при оформлении заказа.")
-    def test_order_coupon(seif, web_driver_wait, page, goto_to, authorization, click_on_main, click_my_account):
-       
+    def test_order_coupon(seif,
+                          web_driver_wait,
+                          page,
+                          goto_to,
+                          authorization,
+                          click_on_main,
+                          click_my_account,
+                          point_and_click):
         """
-           Кейс №9 - Сценарий №1
+           Кейс №5 - Сценарий №1
            Предусловие: Пользователь должен быть Авторизован.
            Шаги:
           1. Открыть страницу http://pizzeria.skillbox.cc
@@ -288,17 +292,13 @@ class TestExample(Actions):
         click_on_main()
 
         with allure.step('Выбрать пиццу "4 в 1" и нажать - В корзину'):
-            object_first = page.locator('li[aria-hidden="false"] a[data-product_id="425"]')
-            object_first.hover()
-            object_first.click()
+            point_and_click('li[aria-hidden="false"] a[data-product_id="425"]')
 
         with allure.step('В слайдере "Пиццы" нажать на стрелку - Вправо'):
             page.locator('a[class="slick-next"]').click()
 
         with allure.step('Выбрать пиццу Пепперони и Нажать на кнопку -В корзину'):
-            object_second = page.locator('li[aria-hidden="false"] a[data-product_id="417"]')
-            object_second.hover()
-            object_second.click()
+            point_and_click('li[aria-hidden="false"] a[data-product_id="417"]')
 
         with allure.step('Нажать на раздел в хедере страницы "Оформлени заказа"'):
             page.locator('li[id="menu-item-31"] a').click()
@@ -313,7 +313,7 @@ class TestExample(Actions):
             with allure.step('Ввести в поле- ввода купона GIVEMEHALYAVA'):
                 web_driver_wait('input[id="coupon_code"]').fill('GIVEMEHALYAVA')
 
-            sleep(0.2)
+            sleep(0.5)
 
         with allure.step('Нажать кнопку "применить купон'):
             page.locator('button[name = "apply_coupon"]').click()
@@ -324,20 +324,32 @@ class TestExample(Actions):
             total_summ_order = page.locator('tr.cart-subtotal>td>span').inner_text()[0:-1].replace(',', '.')
             total_summ_order = float(total_summ_order)
 
-            discount_order = page.locator('tr.cart-discount>td>span').inner_text()[0:-1].replace(',', '.')
-            discount_order = float(discount_order)
+            # discount_order = page.locator('tr.cart-discount>td>span').inner_text()[0:-1].replace(',', '.')
+            # discount_order = float(discount_order)
 
             discount_summ = page.locator('tr.order-total>td span.amount').inner_text()[0:-1].replace(',', '.')
             discount_summ = float(discount_summ)
 
-            assert total_summ_order * discount == total_summ_order - discount_summ, f"Сумма скидки не равна {percent}%"
-            pass
+            if total_summ_order * discount != total_summ_order - discount_summ:
+                page.locator('div.woocommerce').screenshot(
+                    path=r"D:\Ekaterina\autotests-in-python\final_work\tests\screen_GIVEMEHALYAVA.png")
+                raise Exception(f"Сумма скидки не равна {percent}%")
+
+            # assert total_summ_order * discount == total_summ_order - discount_summ, f"Сумма скидки не равна {percent}%"
+            # pass
 
     @allure.title("Применение невалидного промокода при оформлении заказа.")
-    def test_order_wrongcoupon(seif, web_driver_wait, page, goto_to, authorization, click_on_main, click_my_account):
-        # todo  Кейс №5
+    def test_order_wrongcoupon(seif,
+                               web_driver_wait,
+                               page,
+                               goto_to,
+                               authorization,
+                               click_on_main,
+                               click_my_account,
+                               point_and_click):
+        # todo  Кейс №6
         """
-              Кейс №5 - Сценарий №2
+              Кейс №6 - Сценарий №2
               Предусловие: Пользователь должен быть Авторизован.
               Шаги:
              1. Открыть страницу http://pizzeria.skillbox.cc
@@ -353,57 +365,60 @@ class TestExample(Actions):
         """
 
         goto_to()
-
         click_my_account()
-
         authorization()
         click_on_main()
 
         with allure.step('Выбрать пиццу и нажать - В корзину'):
-            object_first = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
-            object_first.hover()
-            object_first.click()
+            point_and_click('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
 
         with allure.step('В слайдере "Пиццы" нажать на стрелку - Вправо'):
-            object_next = page.locator('a[class="slick-next"]')
-            object_next.hover()
-            object_next.click()
+            point_and_click('a[class="slick-next"]')
 
         with allure.step('Выбрать пиццу Пепперони и Нажать на кнопку -В корзину'):
-            object_second = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=417"]')
-            object_second.hover()
-            object_second.click()
+            point_and_click('li[aria-hidden="false"] a[href="?add-to-cart=417"]')
 
         with allure.step('Нажать на раздел в хедере страницы "Оформлени заказа"'):
-            my_order = page.locator('li[id="menu-item-31"] a')
-            my_order.click()
+            page.locator('li[id="menu-item-31"] a').click()
 
-        with allure.step('Нажать на поле- ссылку для открытия поля- ввода купона"'):
-            showcoupon = page.locator(' a[class ="showcoupon"]')
-            showcoupon.click()
+        count_time = 0
+        while count_time < 10 and 'none' in page.locator('.checkout_coupon').get_attribute('style'):
+            count_time += 1
 
-        with allure.step('Ввести в поле- ввода купона невалидный купон'):
-            coupon_code = page.locator('input[id = "coupon_code"]')
-            coupon_code.fill('DC120')
+            with allure.step('Нажать на поле- ссылку для открытия поля- ввода купона"'):
+                web_driver_wait('a[class ="showcoupon"]').click()
+
+            with allure.step('Ввести в поле- ввода купона DC120'):
+                web_driver_wait('input[id="coupon_code"]').fill('DC120')
+
+            sleep(0.5)
 
         with allure.step('Нажать кнопку "применить купон'):
-            apply_coupon = page.locator('button[name = "apply_coupon"]')
-            apply_coupon.click()
+            page.locator('button[name = "apply_coupon"]').click()
 
         with allure.step('Проверяем, что купон не применился'):
             total_summ_order = page.locator('tr.cart-subtotal>td>span').inner_text()[0:-1].replace(',', '.')
             total_summ_order = float(total_summ_order)
 
-            # discount_order = page.locator('tr.cart-discount>td>span').inner_text()[0:-1].replace(',', '.')
-            # discount_order = float(discount_order)
-
             discount_summ = page.locator('tr.order-total>td span.amount').inner_text()[0:-1].replace(',', '.')
             discount_summ = float(discount_summ)
 
-            assert discount_summ == total_summ_order, "Пользователь получил скидку в результате применения невалидного купона"
+            screenshots = str(current_path.parent.parent) + "\\screenshot\\"
+
+            if discount_summ != total_summ_order:
+                page.locator('div.woocommerce').screenshot(
+                    path=screenshots + "screenshot.png")
+                raise Exception("Пользователь получил скидку в результате применения невалидного купона")
 
     @allure.title("Перехватить промокод GIVEMEHALYAVA.")
-    def test_order_block_coupon(seif, web_driver_wait, page, goto_to, authorization, click_on_main, click_my_account):
+    def test_order_block_coupon(seif,
+                                web_driver_wait,
+                                page,
+                                goto_to,
+                                authorization,
+                                click_on_main,
+                                click_my_account,
+                                point_and_click):
         """
                 Кейс №11 - Сценарий №3
                 Предусловие: Пользователь должен быть Авторизован.
@@ -424,19 +439,13 @@ class TestExample(Actions):
         click_on_main()
 
         with allure.step('Выбрать пиццу и нажать - В корзину'):
-            object_first = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
-            object_first.hover()
-            object_first.click()
+            point_and_click('li[aria-hidden="false"] a[href="?add-to-cart=425"]')
 
         with allure.step('В слайдере "Пиццы" нажать на стрелку - Вправо'):
-            object_next = page.locator('a[class="slick-next"]')
-            object_next.hover()
-            object_next.click()
+            point_and_click('a[class="slick-next"]')
 
         with allure.step('Выбрать пиццу Рай и Нажать на кнопку -В корзину'):
-            object_second = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=421"]')
-            object_second.hover()
-            object_second.click()
+            point_and_click('li[aria-hidden="false"] a[href="?add-to-cart=421"]')
 
         with allure.step('Нажать на раздел в хедере страницы "Оформлени заказа"'):
             my_order = page.locator('li[id="menu-item-31"] a')
@@ -455,7 +464,14 @@ class TestExample(Actions):
             apply_coupon.click()
 
     @allure.title("Применение промокода ПОВТОРНО при оформлении заказа.")
-    def test_reapplying_promo_code(seif, web_driver_wait, page, goto_to, authorization, coupon_entry, click_on_main):
+    def test_reapplying_promo_code(seif,
+                                   web_driver_wait,
+                                   page,
+                                   goto_to,
+                                   authorization,
+                                   coupon_entry,
+                                   click_on_main,
+                                   point_and_click):
         # todo  Кейс №12 - Сценарий №4
         """
                             Кейс №12 - Сценарий №4
@@ -488,17 +504,13 @@ class TestExample(Actions):
         click_on_main()
 
         with allure.step('Выбрать пиццу "Рай" и нажать - В корзину'):
-            object_first = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=421"]')
-            object_first.hover()
-            object_first.click()
+            point_and_click('li[aria-hidden="false"] a[href="?add-to-cart=421"]')
 
         with allure.step('Нажать на раздел в хедере страницы "Оформлени заказа"'):
-            my_order = page.locator('li[id="menu-item-31"] a')
-            my_order.click()
+            page.locator('li[id="menu-item-31"] a').click()
 
         with allure.step('Нажать на поле- ссылку для открытия поля- ввода купона"'):
-            showcoupon = page.locator(' a[class ="showcoupon"]')
-            showcoupon.click()
+            showcoupon = page.locator(' a[class ="showcoupon"]').click()
 
         coupon_entry()
         # with allure.step('Ввести в поле- ввода купона GIVEMEHALYAVA'):
@@ -508,15 +520,6 @@ class TestExample(Actions):
         with allure.step('Нажать кнопку "применить купон'):
             apply_coupon = page.locator('button[name = "apply_coupon"]').click()
             apply_coupon
-
-    def prefix_zero(n: int):
-        """
-                функция дописывает ноль перед чеслом n, если n<10
-                :param n: целое число
-                :return: строка
-        """
-        n_str = str(n)
-        return "0" + n_str if n < 10 else n_str
 
         current_date = datetime.today()  # текущая  дата
         delta = timedelta(days=5)
@@ -560,15 +563,6 @@ class TestExample(Actions):
         with allure.step('Нажать кнопку "применить купон'):
             apply_coupon = page.locator('button[name = "apply_coupon"]]')
             apply_coupon.click()
-
-        def prefix_zero(n: int):
-            """
-                    функция дописывает ноль перед чеслом n, если n<10
-                    :param n: целое число
-                    :return: строка
-            """
-            n_str = str(n)
-            return "0" + n_str if n < 10 else n_str
 
             current_date = datetime.today()  # текущая  дата
             delta = timedelta(days=5)
@@ -617,7 +611,13 @@ class TestExample(Actions):
             page.locator('button[name="bonus"]').click()
 
     @allure.title("Проверить применение скидки 15% по № телефона (бонусная программа)")
-    def test_check_bonus(seif, web_driver_wait, page,goto_to, authorization, click_my_account):
+    def test_check_bonus(seif,
+                         web_driver_wait,
+                         page,
+                         goto_to,
+                         authorization,
+                         click_my_account,
+                         point_and_click):
         """
                                     Кейс №14- Сценарий №6
                     Предусловие: Пользователь должен быть Авторизован и зарегистрирован в бонусной программе.
@@ -642,9 +642,7 @@ class TestExample(Actions):
         authorization()
 
         with allure.step('Выбрать подкатегорию в "Меню" -"Десерты".'):
-            object_desert = page.locator('li[id="menu-item-391"] > a')
-            object_desert.hover()
-            object_desert.click()
+            point_and_click('li[id="menu-item-391"] > a')
 
         with allure.step('Нажать на иконку десерта "Шоколадный шок".'):
             page.locator('li.post-435 a[class="collection_title"]').hover()
@@ -656,15 +654,6 @@ class TestExample(Actions):
 
         with allure.step('Ввести в поле- комментария номер телефона 89095608899'):
             page.locator('#order_comments').fill('89095608899')
-
-        def prefix_zero(n: int):
-            """
-                    функция дописывает ноль перед чеслом n, если n<10
-                    :param n: целое число
-                    :return: строка
-            """
-            n_str = str(n)
-            return "0" + n_str if n < 10 else n_str
 
             current_date = datetime.today()  # текущая  дата
             delta = timedelta(days=5)
@@ -685,7 +674,12 @@ class TestExample(Actions):
             page.locator('#place_order').click()
 
     @allure.title('Проверить валидацию полей раздела "Бонусная программа"')
-    def test_checkstring_bonus(seif, web_driver_wait, page, goto_to, authorization, click_my_account):
+    def test_checkstring_bonus(seif,
+                               web_driver_wait,
+                               page,
+                               goto_to,
+                               authorization,
+                               click_my_account):
         """
         Кейс №15- Сценарий №6
             Предусловие: Пользователь должен быть Авторизован и зарегистрирован в бонусной программе.
