@@ -5,14 +5,14 @@ from random import uniform
 
 import pytest
 
-from module_7.src.Utils.сhecking_elements import *  # noqa
-from module_7.src.actions.actions import *  # noqa
+from final_work.src.Utils.сhecking_elements import *  # noqa
+from final_work.src.actions.actions import *  # noqa
 
 
 class TestExample():
 
     @pytest.fixture
-    def goto_to(page):
+    def goto_to(seif, page):
         def callback(url='http://pizzeria.skillbox.cc'):
             logging.info(f"Запускаем страницу browser, URL {url}")
             with allure.step(f'Открыть страницу {url}'):
@@ -21,7 +21,7 @@ class TestExample():
         return callback
 
     @pytest.fixture
-    def authorization(page):
+    def authorization(seif, page):
         def callback(nameuser='stepbystep', password_user='stepbystep23'):
             with allure.step('Нажать на раздел в хедере страницы "Мой аккаунт"'):
                 page.locator('li[id="menu-item-30"] a').click()
@@ -35,6 +35,17 @@ class TestExample():
 
             with allure.step('Нажать на кнопку войти'):
                 page.locator('button[value="Войти"]').click()
+        return callback
+
+
+    @pytest.fixture()
+    def click_on_main(self, page):
+        def callback():
+            with allure.step('Нажать на раздел в хедере страницы "Главная"'):
+                main = page.locator('li[id="menu-item-26"] a')
+                main.click()
+        return callback
+
 
     @allure.title('Поиск задач на github по заголовкам')
     def test_find_title_bug(seif, web_driver_wait, page):
@@ -633,8 +644,7 @@ class TestExample():
             showcoupon = web_driver_wait('a[class ="showcoupon"]')
             showcoupon.click()
 
-        # todo Ссылка нажимается раньше, чем ей назначен обработчик click.
-        #  Реализовать цыкл в котором будет происходить клик на ссылке до тех пор пока не отработает обработчик.
+
 
         with allure.step('Ввести в поле- ввода купона GIVEMEHALYAVA'):
             coupon_code = web_driver_wait('input[id="coupon_code"]')
@@ -817,9 +827,11 @@ class TestExample():
                   apply_coupon = page.locator('button[name = "apply_coupon"]]')
                   apply_coupon.click()
 
+
+
     @allure.title("Применение промокода ПОВТОРНО при оформлении заказа.")
-    def test_order_pizza(seif, web_driver_wait, page, goto_to, authorization):
-        #todo  Кейс №12 - Сценарий №4
+    def test_reapplying_promo_code(seif, web_driver_wait, page, goto_to, authorization, click_on_main):
+
         """
                             Кейс №12 - Сценарий №4
                           Предусловие: Пользователь должен быть Авторизован.
@@ -846,13 +858,10 @@ class TestExample():
                     16.Установить галочку в чек- боксе согласия с условиями вебсайта.
                     17. Нажать кнопку "Оформить заказ"
         """
+
         goto_to()
         authorization()
-
-
-        with allure.step('Нажать на раздел в хедере страницы "Главная"'):
-            main = page.locator('li[id="menu-item-26"] a')
-            main.click()
+        click_on_main()
 
         with allure.step('Выбрать пиццу "Рай" и нажать - В корзину'):
             object_first = page.locator('li[aria-hidden="false"] a[href="?add-to-cart=421"]')
@@ -867,9 +876,14 @@ class TestExample():
             showcoupon = page.locator(' a[class ="showcoupon"]')
             showcoupon.click()
 
-        with allure.step('Ввести в поле- ввода купона GIVEMEHALYAVA'):
-            coupon_code = page.locator('input[id = "coupon_code"]')
-            coupon_code.fill('GIVEMEHALYAVA')
+
+        # with allure.step('Ввести в поле- ввода купона GIVEMEHALYAVA'):
+        #     coupon_code = page.locator('input[id = "coupon_code"]')
+        #     coupon_code.fill('GIVEMEHALYAVA')
+
+
+
+
 
         with allure.step('Нажать кнопку "применить купон'):
             apply_coupon = page.locator('button[name = "apply_coupon"]')
