@@ -614,5 +614,5 @@ class TestExample(Actions):
                    generation_random_string(255)]
 
     string_phon = [generation_random_digits(10), generation_random_digits(11), generation_random_digits(12),
-                   ' ' + generation_random_digits(11) + ' ', '',
+                   f' {generation_random_digits(11)} ', '', '8 921 044 23 99', '8-921-044-23-99',
                    '<script>alert(‘XSS’)</script>', generation_random_digits(255), '1', "tr'"]
