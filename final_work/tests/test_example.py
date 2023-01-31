@@ -514,6 +514,7 @@ class TestExample(Actions):
                          point_and_click,
                          order_date,
                          fill_order_form,
+                         price_parser,
                          pytestconfig):
 
 
@@ -569,6 +570,21 @@ class TestExample(Actions):
 
         with allure.step('Нажать кнопку "Оформить заказ"'):
             page.locator('#place_order').click()
+
+        page.wait_for_event('domcontentloaded')
+
+        with allure.step(f'Проверяем применение скидки 15% по № {telephone}'):
+            percent = 15
+            discount = percent / 100
+            total = price_parser('tfoot>tr:nth-of-type(3) .amount')
+            subtotal = price_parser('tfoot>tr:nth-of-type(1) .amount')
+
+            if total*(1 - discount) != subtotal:
+                screenshots = str(current_path.parent.parent) + "\\screenshots\\"
+                page.locator('div#primary').screenshot(
+                    path=f'{screenshots}Cкидкa 15% по № {telephone} не применилась.png')
+
+            assert total*(1 - discount) == subtotal, f'Cкидкa 15% по № {telephone} не применилась'
 
     @allure.title('Проверить валидацию полей раздела "Бонусная программа"')
     def test_checkstring_bonus(seif,
