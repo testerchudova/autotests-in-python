@@ -10,6 +10,7 @@ def pytest_addoption(parser):
     parser.addini("nameuser", "Имя пользователя")
     parser.addini("user_email", "Email пользователя")
     parser.addini("password_user", "Пароль пользователя")
+    parser.addini("telephone", "Номер телефона пользователя")
 
 
 pytest_plugins = [

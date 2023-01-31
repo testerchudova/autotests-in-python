@@ -382,7 +382,7 @@ class TestExample(Actions):
                                    price_parser,
                                    authorization,
                                    web_driver_wait):
-        # todo  Кейс №8
+
         """
             Кейс №8 - Сценарий №4
             Шаги:
@@ -432,8 +432,6 @@ class TestExample(Actions):
         with allure.step('Установить галочку в чек - боксе согласия с условиями вебсайта.'):
             page.locator('#terms').click()
 
-
-
         with allure.step('Нажать кнопку "Оформить заказ"'):
             page.locator('#place_order').click()
 
@@ -449,31 +447,11 @@ class TestExample(Actions):
             point_and_click('li.post-435 a[class="collection_title"]')
 
         page.wait_for_event('domcontentloaded')
-        #
-        #
-        # def wait_event(fn_action, fn_predicate, fn_event_execution=None, second=0.5):
-        #     count_time = 0
-        #     while count_time < 10:
-        #         count_time += 1
-        #
-        #         if fn_predicate():
-        #             if not (fn_event_execution is None):
-        #                 fn_event_execution()
-        #             break
-        #         else:
-        #             fn_action()
-        #
-        #         sleep(second)
-        #         logging.info(f'Ожидание {second * count_time}сек')
-        #
-        # with allure.step('Нажать кнопку "В корзину"'):
-        #     wait_event(lambda: page.locator('button[value="435"]').click(),
-        #                )
 
         with allure.step('Нажать кнопку "В корзину"'):
             page.locator('button[value="435"]').click()
 
-            page.wait_for_event('domcontentloaded')
+        page.wait_for_event('domcontentloaded')
 
         with allure.step('Нажать на раздел в хедере страницы "Оформлени заказа"'):
             page.locator('li[id="menu-item-31"] a').click()
@@ -497,19 +475,19 @@ class TestExample(Actions):
                        page,
                        goto_to,
                        authorization,
-                       click_my_account):
+                       click_my_account,
+                       pytestconfig):
         """
-                            Кейс №9 - Сценарий №5
-                    Предусловие: Пользователь должен быть Авторизован.
-                    Шаги:
-                    1. Открыть страницу http://pizzeria.skillbox.cc
-                    2. Нажать на раздел в хедере страницы "Бонусная программа"
-                    2.1. Ввести данные в поле имя.
-                    2.2. Ввести данные в поле телефон.
-                    3. Нажать кнопку "Оформить карту"
-
+            Кейс №9 - Сценарий №5
+            Предусловие: Пользователь должен быть Авторизован.
+            Шаги:
+            1. Открыть страницу http://pizzeria.skillbox.cc
+            2. Нажать на раздел в хедере страницы "Бонусная программа"
+            2.1. Ввести данные в поле имя.
+            2.2. Ввести данные в поле телефон.
+            3. Нажать кнопку "Оформить карту"
         """
-
+        telephone = pytestconfig.getini('telephone')
         goto_to()
         click_my_account()
         authorization()
@@ -517,12 +495,15 @@ class TestExample(Actions):
         with allure.step('Нажать на раздел в хедере страницы "Бонусная программа"'):
             page.locator('li[id="menu-item-363"] a').click()
 
-        with allure.step('Заполнить поля имя и телефон'):
+        with allure.step(f'Заполнить поля имя и телефон {telephone}'):
             page.locator('input[name="username"]').fill('Екатерина')
-            page.locator('input[id="bonus_phone"]').fill('89095608899')
+            page.locator('input[id="bonus_phone"]').fill(telephone)
 
         with allure.step('Нажать кнопку "Оформить карту"'):
             page.locator('button[name="bonus"]').click()
+
+        with allure.step('Проверка оформления карты'):
+            assert is_element(page, 'div#bonus_main>h3'), "Бонусная карта не оформлена"
 
     @allure.title("Проверить применение скидки 15% по № телефона (бонусная программа)")
     def test_check_bonus(seif,
@@ -532,42 +513,53 @@ class TestExample(Actions):
                          click_my_account,
                          point_and_click,
                          order_date,
-                         fill_order_form):
-        """
-                                    Кейс №14- Сценарий №6
-                    Предусловие: Пользователь должен быть Авторизован и зарегистрирован в бонусной программе.
-                    Шаги:
-                    1. Открыть страницу http://pizzeria.skillbox.cc
-                    2.Выбрать подкатегорию в "Меню" -"Десерты".
-                    3.Нажать подкатегорию "Меню" -"Десерты"
-                    4. Нажать на иконку десерта "Шоколадный шок"
-                    5. Нажать на кнопку "В корзину".
-                    6. Нажать на раздел в хедере страницы "Оформление заказа"
-                    7. Нажать на поле- ссылку для открытия поля- ввода купона.
-                    8. Ввести в поле- комментария номер телефона '89095608899'.
-                    9. До заполнить на странице "Оформление заказа" обязательные поля не заполненные по умолчанию: дата заказа.
-                    10.Установить галочку в чек- боксе согласия с условиями вебсайта.
-                    11. Нажать кнопку "Оформить заказ"
-                    12. Убедиться, что применилась скидка 15%
+                         fill_order_form,
+                         pytestconfig):
+
 
         """
-
+            Кейс №10- Сценарий №6
+            1.	Открыть страницу http://pizzeria.skillbox.cc
+            2.	Кликнуть пункт меню "Мой аккаунт"
+            3.	Провести авторизацию пользователя
+            4.	Выбрать подкатегорию в "Меню" -"Десерты".
+            5.	Нажать подкатегорию "Меню" -"Десерты"
+            6.	Нажать на иконку десерта "Шоколадный шок"
+            7.	Нажать на кнопку "В корзину".
+            8.	Нажать на раздел в хедере страницы "Оформление заказа"
+            9.	Нажать на поле- ссылку для открытия поля- ввода купона.
+            10.	Ввести в поле- комментария номер телефона '89095608899'.
+            11.	До заполнить на странице "Оформление заказа" обязательные поля, не заполненные по умолчанию: дата заказа.
+            12.	Установить галочку в чек- боксе согласия с условиями вебсайта.
+            13.	Нажать кнопку "Оформить заказ"
+            14.	Убедиться, что применилась скидка 15%
+        """
+        telephone = pytestconfig.getini('telephone')
         goto_to()
         click_my_account()
         authorization()
 
         with allure.step('Выбрать подкатегорию в "Меню" -"Десерты".'):
+            page.locator('li[id="menu-item-389"] > a').hover()
+
+        with allure.step('Выбрать подкатегорию в "Меню" -"Десерты".'):
             point_and_click('li[id="menu-item-391"] > a')
 
         with allure.step('Нажать на иконку десерта "Шоколадный шок".'):
-            page.locator('li.post-435 a[class="collection_title"]').hover()
-            page.locator('li.post-435 a[class="collection_title"]').click()
+            point_and_click('li.post-435 a[class="collection_title"]')
+
+        page.wait_for_event('domcontentloaded')
+
+        with allure.step('Нажать кнопку "В корзину"'):
+            page.locator('button[value="435"]').click()
+
+        page.wait_for_event('domcontentloaded')
 
         with allure.step('Нажать на раздел в хедере страницы "Оформлени заказа"'):
             page.locator('li[id="menu-item-31"] a').click()
 
-        with allure.step('Ввести в поле- комментария номер телефона 89095608899'):
-            page.locator('#order_comments').fill('89095608899')
+        with allure.step(f'Ввести в поле- комментария номер телефона {telephone}'):
+            page.locator('#order_comments').fill(telephone)
 
             order_date()
             fill_order_form()
@@ -595,19 +587,19 @@ class TestExample(Actions):
             3. Нажать кнопку "Оформить карту"
         """
 
-        goto_to()
-        click_my_account()
-        authorization()
-
-        with allure.step('Нажать на раздел в хедере страницы "Бонусная программа"'):
-            page.locator('li[id="menu-item-363"] a').click()
-
-        with allure.step('Заполнить поля имя и телефон'):
-            page.locator('input[name="username"]').fill('Екатерина')
-            page.locator('input[id="bonus_phone"]').fill('89095608899')
-
-        with allure.step('Нажать кнопку "Оформить карту"'):
-            page.locator('button[name="bonus"]').click()
+        # goto_to()
+        # click_my_account()
+        # authorization()
+        # 
+        # with allure.step('Нажать на раздел в хедере страницы "Бонусная программа"'):
+        #     page.locator('li[id="menu-item-363"] a').click()
+        # 
+        # with allure.step('Заполнить поля имя и телефон'):
+        #     page.locator('input[name="username"]').fill('Екатерина')
+        #     page.locator('input[id="bonus_phone"]').fill('89095608899')
+        # 
+        # with allure.step('Нажать кнопку "Оформить карту"'):
+        #     page.locator('button[name="bonus"]').click()
 
     phone = generation_random_digits(10)
     string_user = ['', ' Катя ', '`~@#$%^&*()_+|-=\{}[]:', 'ТАНЯ', '<script>alert(‘XSS’)</script>', phone,
