@@ -4,7 +4,7 @@ import pytest
 from time import sleep
 from final_work.src.Utils.сhecking_elements import *  # noqa
 from datetime import datetime, timedelta
-
+from pathlib import Path
 
 class Actions:
 
@@ -102,6 +102,18 @@ class Actions:
         return callback
 
     @pytest.fixture()
+    def checking_discount(self, page, price_parser, web_driver_wait):
+        def callback(percent_discount=10):
+            discount = percent_discount / 100
+            web_driver_wait('tr.cart-subtotal>td>span')
+            total_summ_order = price_parser('tr.cart-subtotal>td>span')
+            discount_summ = price_parser('tr.order-total>td span.amount')
+
+            return total_summ_order * discount == total_summ_order - discount_summ
+
+        return callback
+
+    @pytest.fixture()
     def point_and_click(self, page):
         def callback(locator: str):
             object = page.locator(locator)
@@ -150,5 +162,16 @@ class Actions:
                 page.locator('#billing_state').fill('Мурманская область')
                 page.locator('#billing_postcode').fill('183032')
                 page.locator('#billing_phone').fill('890529785906')
+
+        return callback
+
+    @pytest.fixture()
+    def screenshot_el(self, page):
+        current_path = Path(__file__)
+
+        def callback(name_files, selector='div.woocommerce', path='screenshots'):
+            screenshots_path = current_path.parents[3].joinpath(path, name_files)
+            page.locator(selector).screenshot(
+                path=screenshots_path)
 
         return callback

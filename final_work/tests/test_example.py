@@ -2,14 +2,12 @@ import logging
 from time import sleep
 from datetime import datetime, timedelta
 import allure
-from pathlib import Path
+
 from random import uniform
 import pytest
 from final_work.src.Utils.сhecking_elements import *  # noqa
 from final_work.src.actions.actions import *  # noqa
 from final_work.src.fixtures import Actions
-
-current_path = Path(__file__)
 
 
 class TestExample(Actions):
@@ -218,7 +216,9 @@ class TestExample(Actions):
                           click_my_account,
                           point_and_click,
                           coupon_entry,
-                          price_parser):
+                          price_parser,
+                          checking_discount,
+                          screenshot_el):
         """
            Кейс №5 - Сценарий №1
            Предусловие: Пользователь должен быть Авторизован.
@@ -257,17 +257,13 @@ class TestExample(Actions):
 
         with allure.step('Убедится, что сумма заказа уменьшилась на 10%'):
             percent = 10
-            discount = percent / 100
-            total_summ_order = price_parser('tr.cart-subtotal>td>span')
-            discount_summ = price_parser('tr.order-total>td span.amount')
+            checking_coupon_discount = checking_discount(percent_discount=percent)
 
-        if total_summ_order * discount != total_summ_order - discount_summ:
-            page.locator('div.woocommerce').screenshot(
-                path=r"D:\Ekaterina\autotests-in-python\final_work\tests\screen_GIVEMEHALYAVA.png")
-            raise Exception(f"Сумма скидки не равна {percent}%")
+        if not checking_coupon_discount:
+            screenshot_el(name_files=f'Сумма скидки не равна {percent}%.png',
+                          selector='dt[id="pathlib.PurePath.with_name"]+dd')
 
-        # assert total_summ_order * discount == total_summ_order - discount_summ, f"Сумма скидки не равна {percent}%"
-        # pass
+        assert checking_coupon_discount, f"Сумма скидки не равна {percent}%"
 
     @allure.title("Применение невалидного промокода при оформлении заказа.")
     def test_order_wrongcoupon(seif,
@@ -278,7 +274,9 @@ class TestExample(Actions):
                                click_my_account,
                                point_and_click,
                                coupon_entry,
-                               price_parser):
+                               price_parser,
+                               checking_discount,
+                               screenshot_el):
 
         """
               Кейс №6 - Сценарий №2
@@ -294,7 +292,7 @@ class TestExample(Actions):
              5. Ввести в поле- ввода купона "DC120".
              6. Нажать кнопку "применить купон".
         """
-
+        coupon = 'DC120'
         goto_to()
         click_my_account()
         authorization()
@@ -312,18 +310,15 @@ class TestExample(Actions):
         with allure.step('Нажать на раздел в хедере страницы "Оформлени заказа"'):
             page.locator('li[id="menu-item-31"] a').click()
 
-        coupon_entry()
+        coupon_entry(name_coupon=coupon)
 
-        with allure.step('Проверяем, что купон не применился'):
-            total_summ_order = price_parser('tr.cart-subtotal>td>span')
-            discount_summ = price_parser('tr.order-total>td span.amount')
+        with allure.step(f'Проверяем, что купон {coupon} не применился'):
+            checking_coupon_discount = checking_discount(percent_discount=0)
 
-            # if discount_summ != total_summ_order:
-            #     screenshots = str(current_path.parent.parent) + "\\screenshot\\"
-            #     page.locator('div.woocommerce').screenshot(
-            #         path=screenshots + "screenshot.png")
-            #     raise Exception("Пользователь получил скидку в результате применения невалидного купона")
-            assert discount_summ == total_summ_order, 'Пользователь получил скидку в результате применения невалидного купона'
+            if not checking_coupon_discount:
+                screenshot_el(name_files=f"Скидка при невалидном купоне {coupon}", selector='div.woocommerce')
+
+            assert checking_coupon_discount, 'Пользователь получил скидку в результате применения невалидного купона'
 
     @allure.title("Перехватить промокод GIVEMEHALYAVA.")
     def test_order_block_coupon(seif,
@@ -333,8 +328,11 @@ class TestExample(Actions):
                                 click_on_main,
                                 click_my_account,
                                 point_and_click,
-                                coupon_entry):
-        # todo  Кейс №7. ПЕРЕХВАТИТЬ КУПОН!!!!
+                                coupon_entry,
+                                price_parser,
+                                checking_discount,
+                                screenshot_el):
+
         """
                 Кейс №7 - Сценарий №3
                 Предусловие: Пользователь должен быть Авторизован.
@@ -347,8 +345,9 @@ class TestExample(Actions):
                 5. Ввести в поле- ввода купона GIVEMEHALYAVA.
                 6. Нажать кнопку "Применить купон"
                 7.ПЕРЕХВАТИТЬ КУПОН!!!!
+                8.
         """
-
+        coupon = 'GIVEMEHALYAVA'
         goto_to()
         click_my_account()
         authorization()
@@ -366,7 +365,18 @@ class TestExample(Actions):
         with allure.step('Нажать на раздел в хедере страницы "Оформлени заказа"'):
             page.locator('li[id="menu-item-31"] a').click()
 
+        page.route("http://pizzeria.skillbox.cc/?wc-ajax=apply_coupon", lambda route: route.fulfill(status=500))
         coupon_entry()
+
+        with allure.step(f'Проверяем, что купон {coupon} не применился в результате ответа сервера "status=500"'):
+            checking_coupon_discount = checking_discount(percent_discount=0)
+
+        if not checking_coupon_discount:
+            screenshot_el(name_files=f'купон {coupon} не применился в результате ответа сервера "status=500".png', selector='div.woocommerce')
+
+        assert checking_coupon_discount, f'{coupon} Купон применился в результате ответа сервера "status=500"'
+
+
 
     @allure.title("Применение промокода ПОВТОРНО при оформлении заказа.")
     def test_reapplying_promo_code(seif,
@@ -381,7 +391,9 @@ class TestExample(Actions):
                                    click_my_account,
                                    price_parser,
                                    authorization,
-                                   web_driver_wait):
+                                   web_driver_wait,
+                                   checking_discount,
+                                   screenshot_el):
 
         """
             Кейс №8 - Сценарий №4
@@ -412,6 +424,8 @@ class TestExample(Actions):
         nameuser = f'Ekaterina{generation_random_digits(5)}'
         user_email = f'{nameuser}@bk.ru'
         password_user = generation_random_string(12)
+        coupon = 'GIVEMEHALYAVA'
+
 
         goto_to()
         click_my_account()
@@ -422,7 +436,7 @@ class TestExample(Actions):
         with allure.step('Выбрать пиццу "Рай" и нажать - В корзину'):
             point_and_click('li[aria-hidden="false"] a[href="?add-to-cart=421"]')
 
-        with allure.step('Нажать на раздел в хедере страницы "Оформлени заказа"'):
+        with allure.step('Нажать на раздел в хедере страницы "Оформлениe заказа"'):
             page.locator('li[id="menu-item-31"] a').click()
 
         coupon_entry()
@@ -460,15 +474,13 @@ class TestExample(Actions):
         web_driver_wait('.cart-discount.coupon-givemehalyava')
 
         with allure.step('Проверяем, что купон не применился повторно'):
-            total_summ_order = price_parser('tr.cart-subtotal>td>span')
-            discount_summ = price_parser('tr.order-total>td span.amount')
 
-            if discount_summ != total_summ_order:
-                screenshots = str(current_path.parent.parent) + "\\screenshots\\"
-                page.locator('div.woocommerce').screenshot(
-                    path=screenshots + "Промокод GIVEMEHALYAVA применился повторно.png")
+            checking_coupon_discount = checking_discount(percent_discount=10)
 
-            assert discount_summ == total_summ_order, 'Промокод GIVEMEHALYAVA применился повторно'
+            if checking_coupon_discount:
+                screenshot_el(name_files=f"Промокод {coupon} применился повторно.png", selector='div.woocommerce')
+
+            assert not checking_coupon_discount, f"Промокод {coupon} применился повторно.png"
 
     @allure.title("Зарегистрироваться в бонусной программе")
     def test_red_bonus(seif,
@@ -515,8 +527,8 @@ class TestExample(Actions):
                          order_date,
                          fill_order_form,
                          price_parser,
-                         pytestconfig):
-
+                         pytestconfig,
+                         screenshot_el):
 
         """
             Кейс №10- Сценарий №6
@@ -579,12 +591,11 @@ class TestExample(Actions):
             total = price_parser('tfoot>tr:nth-of-type(3) .amount')
             subtotal = price_parser('tfoot>tr:nth-of-type(1) .amount')
 
-            if total*(1 - discount) != subtotal:
-                screenshots = str(current_path.parent.parent) + "\\screenshots\\"
-                page.locator('div#primary').screenshot(
-                    path=f'{screenshots}Cкидкa 15% по № {telephone} не применилась.png')
+            if total * (1 - discount) != subtotal:
+                screenshot_el(name_files=f'Cкидкa 15% по № {telephone} не применилась.png',
+                              selector='div#primary')
 
-            assert total*(1 - discount) == subtotal, f'Cкидкa 15% по № {telephone} не применилась'
+            assert total * (1 - discount) == subtotal, f'Cкидкa 15% по № {telephone} не применилась'
 
     @allure.title('Проверить валидацию полей раздела "Бонусная программа"')
     def test_checkstring_bonus(seif,
