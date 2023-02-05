@@ -1,5 +1,6 @@
 import secrets
 import string
+from playwright._impl._api_types import TimeoutError
 
 
 def generation_random_symbols(symbols: list, length):
@@ -10,7 +11,6 @@ def generation_random_symbols(symbols: list, length):
     :return:string возвращает строку символов длинной length
     """
     character_sequence = ''.join(secrets.choice(symbols) for i in range(length))
-    # print("Cryptic Random string of length", length, "is:", character_sequence)
     return character_sequence
 
 

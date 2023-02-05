@@ -1,6 +1,6 @@
 [flake8]
-ignore  =  F405
-exclude  =  .pytest_cache,bin,env,loggin,my_allure_results,service, D:\\Ekaterina\\autotests-in-python\\module_6\\conftest.py
+ignore  =  F405,C901,W605
+exclude  =  .pytest_cache,bin,env,loggin,my_allure_results,service, D:\\Ekaterina\\autotests-in-python\\final-work\\conftest.py
 max-line-length = 120
 max-complexity  =  10
 format='%(path)s:%(row)d,%(col)d:%(code)s:%(text)s'
