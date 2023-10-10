@@ -7,8 +7,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.expected_conditions import text_to_be_present_in_element_value
 from selenium.common.exceptions import StaleElementReferenceException
-from module_6.src.Utils.сhecking_elements import is_element
-from module_6.src.actions.actions import *  # noqa
+from src.Utils.сhecking_elements import is_element
+from src.actions.actions import *  # noqa
 
 
 class TestExample():

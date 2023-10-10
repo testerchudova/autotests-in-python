@@ -1,4 +1,5 @@
 /.idea
+/.vscode
 *.log
 DEV/~$Книга1.xlsx
 /env
@@ -19,7 +20,7 @@ DEV/~$Книга1.xlsx
 /module_6/service/commands.txt
 /module_6/junit.xml
 /module_6/service/
-/module_6/my_allure_results/
+/module_6/tests/my_allure_results/
 /module_6/allure_results/
 __pycache__
 allure_results
